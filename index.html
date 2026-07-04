@@ -78,7 +78,8 @@
   @media(prefers-color-scheme:dark){.phone{--asframe:#10161f;--asbg:#0d131c;--ascard:#161d28;--astext:#eef2f8;--asmut:#9aa6b4;--assub:#7d8a99;--asbord:#232c38;--asopen:#3ddc84;--asbadgebg:#16263f;--asbadgefg:#7fb0ff}}
   :root[data-theme="dark"] .phone{--asframe:#10161f;--asbg:#0d131c;--ascard:#161d28;--astext:#eef2f8;--asmut:#9aa6b4;--assub:#7d8a99;--asbord:#232c38;--asopen:#3ddc84;--asbadgebg:#16263f;--asbadgefg:#7fb0ff}
   :root[data-theme="light"] .phone{--asframe:#fff;--asbg:#f4f5f7;--ascard:#fff;--astext:#16202B;--asmut:#6b7078;--assub:#9298a1;--asbord:#edeef1;--asopen:#178a4e;--asbadgebg:#e7effe;--asbadgefg:#1f5fd6}
-  .appscreen{background:var(--asbg);padding:15px 13px 0}
+  .appscreen{background:var(--asbg);padding:10px 13px 0;flex:1;min-height:0;overflow:hidden;position:relative}
+  .appscreen::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;background:linear-gradient(to bottom,rgba(0,0,0,0),var(--asbg));pointer-events:none}
   .apptop{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
   .apptop .h{width:27px;height:27px;border-radius:50%;background:var(--ascard);display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 2px 7px rgba(20,20,30,.1)}
   .apptop .lg{display:flex;align-items:center;background:var(--ascard);border-radius:999px;padding:3px;box-shadow:0 2px 7px rgba(20,20,30,.1);font-size:11px;font-weight:700}
@@ -220,6 +221,46 @@
   .crleg>span{display:inline-flex;align-items:center;gap:5px}
   .crleg i{width:9px;height:9px;border-radius:3px;display:inline-block}
   .ccar .cdot.on{width:16px;border-radius:999px;background:var(--gold)}
+  /* stacked auto-flipping decks */
+  .deck{position:relative;margin:0 auto}
+  .deckcard{position:absolute;left:50%;top:80px;border-radius:34px;transform:translateX(-50%) scale(1);transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .6s ease,filter .6s ease;opacity:1}
+  .deckcard[data-pos="0"]{transform:translateX(-50%) translateY(0) scale(1);opacity:1;filter:none;box-shadow:0 36px 74px -34px rgba(20,20,30,.6)}
+  .deckcard[data-pos="1"]{transform:translateX(-50%) translateY(-44px) scale(.93);opacity:.7;filter:saturate(.9);box-shadow:0 20px 40px -28px rgba(20,20,30,.5)}
+  .deckcard[data-pos="2"]{transform:translateX(-50%) translateY(-78px) scale(.86);opacity:.42;filter:saturate(.82)}
+  .pdeck{width:min(322px,84vw);height:600px;justify-self:center}
+  .pdeck .deckcard{width:min(322px,84vw);height:512px;display:flex;flex-direction:column}
+  .cdeck{width:100%;max-width:900px;height:486px;margin:0 auto}
+  .cdeck .deckcard{width:min(880px,97%);height:398px;border-radius:16px}
+  @media(max-width:660px){.cdeck{height:500px}.cdeck .deckcard{height:412px}}
+  .statusbar{display:flex;justify-content:space-between;align-items:center;padding:9px 17px 2px;font-size:11px;font-weight:700;color:var(--astext);flex:none}
+  .statusbar .sbr{font-size:10px;letter-spacing:1px;opacity:.85}
+  .pnav{display:flex;justify-content:space-around;align-items:center;padding:9px 0 12px;border-top:1px solid var(--asbord);background:var(--ascard);flex:none}
+  .pnav .pn{font-size:17px;opacity:.34;filter:grayscale(1)}
+  .pnav .pn.on{opacity:1;filter:none}
+  .svc.thumb{display:flex;gap:10px;align-items:flex-start}
+  .svc.thumb .sth{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+  .svc.thumb .svb{flex:1;min-width:0}
+  .cdeck .crmwin{height:100%}
+  .crbody{flex:1;min-height:0;overflow:hidden;padding:15px;position:relative}
+  .crbody::after{content:"";position:absolute;left:0;right:0;bottom:0;height:20px;background:linear-gradient(to bottom,rgba(0,0,0,0),var(--crbg));pointer-events:none}
+  .crhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px}
+  .ct2{font-family:var(--head);font-size:15px;font-weight:700;color:var(--crtext)}
+  .crbadge{font-size:9.5px;font-weight:800;color:#1fa855;background:color-mix(in srgb,#1fa855 16%,transparent);border-radius:999px;padding:3px 9px;white-space:nowrap}
+  .crbadge.gold{color:var(--gold-deep);background:color-mix(in srgb,var(--gold) 17%,transparent)}
+  :root[data-theme="dark"] .crbadge.gold{color:var(--gold)}
+  .crpills{display:flex;gap:3px}
+  .crpills span{font-size:10px;color:var(--crmut);padding:4px 8px;border-radius:8px;font-weight:600}
+  .crpills span.on{background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--gold-deep)}
+  :root[data-theme="dark"] .crpills span.on{color:var(--gold)}
+  .crsub{font-size:11px;color:var(--crmut);margin-bottom:7px}
+  .crmini{display:flex;flex-direction:column;gap:5px;font-size:11.5px;color:var(--crmut);margin-top:4px}
+  .crmini b{color:var(--crtext)}
+  .crmap{position:relative;height:150px;border-radius:12px;border:1px solid var(--crbord);overflow:hidden;background:repeating-linear-gradient(0deg,transparent 0 21px,color-mix(in srgb,var(--crmut) 9%,transparent) 21px 22px),repeating-linear-gradient(90deg,transparent 0 21px,color-mix(in srgb,var(--crmut) 9%,transparent) 21px 22px),var(--crbg)}
+  .crmap .ring{position:absolute;left:52%;top:56%;width:138px;height:138px;border:1.5px dashed var(--gold);border-radius:50%;transform:translate(-50%,-50%);opacity:.55}
+  .pin{position:absolute;transform:translate(-50%,-50%);font-size:10px;font-weight:800;color:#fff;padding:3px 7px;border-radius:8px;white-space:nowrap;box-shadow:0 3px 8px rgba(0,0,0,.35)}
+  .pin.you{background:linear-gradient(150deg,#f0c96a,#e0900c);color:#3a2a06}
+  .pin.cmp{background:#1fa855}
+  .pin.oth{background:#8a93a6}
   .phone .top{background:var(--midnight);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:11px}
   .phone .top .who{line-height:1.25;display:flex;flex-direction:column}
   .phone .top .who .h{font-family:var(--head);font-weight:600;font-size:14.5px}
@@ -386,52 +427,46 @@
           </div>
           <p class="trust reveal d4" data-i18n="hero.trust"></p>
         </div>
-        <div class="phone reveal d4">
-          <div class="appscreen">
-            <div class="apptop">
-              <span class="h">❤️</span>
-              <span class="lg"><b>FR</b><span>EN</span></span>
-            </div>
-            <div class="pcar" data-interval="3600">
-              <div class="pstage">
-                <div class="pscreen on">
-                  <span class="apphotel" data-i18n="app.hotel"></span>
-                  <h3 class="appgreet" data-i18n="app.greeting"></h3>
-                  <p class="appsub" data-i18n="app.sub"></p>
-                  <div class="appcard feat-card">
-                    <span class="ic">🍽️</span>
-                    <span class="ft"><b data-i18n="app.dinnerT"></b><span data-i18n="app.dinnerD"></span></span>
-                    <span class="wx">☀️ 24°</span>
-                  </div>
-                  <div class="appcard alfred-card">
-                    <span class="av">🤵</span>
-                    <span class="al"><span class="alh"><b>Alfred</b><span class="badge" data-i18n="app.alfredBadge"></span></span><span data-i18n="app.alfredD"></span></span>
-                    <span class="chev">›</span>
-                  </div>
-                  <div class="explore" data-i18n="app.explore"></div>
-                  <div class="moods">
-                    <div class="mood"><span class="mic" style="background:#ffe7cf">🍽️</span><span class="mt"><b data-i18n="app.m1t"></b><span data-i18n="app.m1d"></span></span><span class="chev">›</span></div>
-                    <div class="mood"><span class="mic" style="background:#d8e8ff">🧭</span><span class="mt"><b data-i18n="app.m2t"></b><span data-i18n="app.m2d"></span></span><span class="chev">›</span></div>
-                    <div class="mood"><span class="mic" style="background:#d8efdc">🌿</span><span class="mt"><b data-i18n="app.m3t"></b><span data-i18n="app.m3d"></span></span><span class="chev">›</span></div>
-                    <div class="mood"><span class="mic" style="background:#ece0ff">🎨</span><span class="mt"><b data-i18n="app.m4t"></b><span data-i18n="app.m4d"></span></span><span class="chev">›</span></div>
-                  </div>
-                </div>
-                <div class="pscreen">
-                  <div class="sugbar"><span class="bk">‹</span><b data-i18n="sug.head"></b><span data-i18n="sug.sub"></span></div>
-                  <div class="svc"><div class="st"><span class="sn">La Terrasse du Marché</span><span class="sr">★ 4,7</span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch">4 min</span></div><div class="sd" data-i18n="sug.v1d"></div></div>
-                  <div class="svc"><div class="st"><span class="sn">Bistro Nord</span><span class="sr">★ 4,5</span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch">7 min</span></div><div class="sd" data-i18n="sug.v2d"></div></div>
-                  <div class="svc"><div class="st"><span class="sn">Le Quai 21</span><span class="sr">★ 4,6</span></div><div class="sm"><span class="sch">12 min</span></div><div class="sd" data-i18n="sug.v3d"></div></div>
-                </div>
-                <div class="pscreen">
-                  <div class="sugbar"><span class="bk">‹</span><b>Alfred</b><span class="badge" style="margin-left:6px" data-i18n="app.alfredBadge"></span></div>
-                  <div class="abub g" data-i18n="chat.q1"></div>
-                  <div class="abub a" data-i18n="chat.a1"></div>
-                  <div class="svc"><div class="st"><span class="sn" data-i18n="chat.vname"></span><span class="sr" data-i18n="chat.rating"></span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch" data-i18n="chat.walk"></span></div><div class="sd" data-i18n="chat.vwhy"></div><div class="sa"><span data-i18n="chat.c1"></span><span data-i18n="chat.c2"></span><span data-i18n="chat.c3"></span></div></div>
-                  <div class="abub g" data-i18n="chat.q2"></div>
-                </div>
+        <div class="pdeck deck reveal d4" data-interval="3400">
+          <div class="phone deckcard">
+            <div class="statusbar"><span>9:41</span><span class="sbr">📶 100% 🔋</span></div>
+            <div class="appscreen">
+              <div class="apptop"><span class="h">❤️</span><span class="lg"><b>FR</b><span>EN</span></span></div>
+              <span class="apphotel" data-i18n="app.hotel"></span>
+              <h3 class="appgreet" data-i18n="app.greeting"></h3>
+              <p class="appsub" data-i18n="app.sub"></p>
+              <div class="appcard feat-card"><span class="ic">🍽️</span><span class="ft"><b data-i18n="app.dinnerT"></b><span data-i18n="app.dinnerD"></span></span><span class="wx">☀️ 24°</span></div>
+              <div class="appcard alfred-card"><span class="av">🤵</span><span class="al"><span class="alh"><b>Alfred</b><span class="badge" data-i18n="app.alfredBadge"></span></span><span data-i18n="app.alfredD"></span></span><span class="chev">›</span></div>
+              <div class="explore" data-i18n="app.explore"></div>
+              <div class="moods">
+                <div class="mood"><span class="mic" style="background:#ffe7cf">🍽️</span><span class="mt"><b data-i18n="app.m1t"></b><span data-i18n="app.m1d"></span></span><span class="chev">›</span></div>
+                <div class="mood"><span class="mic" style="background:#d8e8ff">🧭</span><span class="mt"><b data-i18n="app.m2t"></b><span data-i18n="app.m2d"></span></span><span class="chev">›</span></div>
+                <div class="mood"><span class="mic" style="background:#d8efdc">🌿</span><span class="mt"><b data-i18n="app.m3t"></b><span data-i18n="app.m3d"></span></span><span class="chev">›</span></div>
+                <div class="mood"><span class="mic" style="background:#ece0ff">🎨</span><span class="mt"><b data-i18n="app.m4t"></b><span data-i18n="app.m4d"></span></span><span class="chev">›</span></div>
               </div>
-              <div class="cdots"></div>
             </div>
+            <div class="pnav"><span class="pn on">🏠</span><span class="pn">🧭</span><span class="pn">💬</span><span class="pn">👤</span></div>
+          </div>
+          <div class="phone deckcard">
+            <div class="statusbar"><span>9:41</span><span class="sbr">📶 100% 🔋</span></div>
+            <div class="appscreen">
+              <div class="sugbar"><span class="bk">‹</span><b data-i18n="sug.head"></b><span data-i18n="sug.sub"></span></div>
+              <div class="svc thumb"><span class="sth" style="background:#ffe7cf">🍽️</span><div class="svb"><div class="st"><span class="sn">La Terrasse du Marché</span><span class="sr">★ 4,7</span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch">4 min</span><span class="sch">$$</span></div><div class="sd" data-i18n="sug.v1d"></div></div></div>
+              <div class="svc thumb"><span class="sth" style="background:#e6e0ff">🍷</span><div class="svb"><div class="st"><span class="sn">Bistro Nord</span><span class="sr">★ 4,5</span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch">7 min</span><span class="sch">$$</span></div><div class="sd" data-i18n="sug.v2d"></div></div></div>
+              <div class="svc thumb"><span class="sth" style="background:#d8eeff">🦞</span><div class="svb"><div class="st"><span class="sn">Le Quai 21</span><span class="sr">★ 4,6</span></div><div class="sm"><span class="sch">12 min</span><span class="sch">$$$</span></div><div class="sd" data-i18n="sug.v3d"></div></div></div>
+            </div>
+            <div class="pnav"><span class="pn">🏠</span><span class="pn on">🧭</span><span class="pn">💬</span><span class="pn">👤</span></div>
+          </div>
+          <div class="phone deckcard">
+            <div class="statusbar"><span>9:41</span><span class="sbr">📶 100% 🔋</span></div>
+            <div class="appscreen">
+              <div class="sugbar"><span class="bk">‹</span><b>Alfred</b><span class="badge" style="margin-left:6px" data-i18n="app.alfredBadge"></span></div>
+              <div class="abub g" data-i18n="chat.q1"></div>
+              <div class="abub a" data-i18n="chat.a1"></div>
+              <div class="svc"><div class="st"><span class="sn" data-i18n="chat.vname"></span><span class="sr" data-i18n="chat.rating"></span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch" data-i18n="chat.walk"></span></div><div class="sd" data-i18n="chat.vwhy"></div><div class="sa"><span data-i18n="chat.c1"></span><span data-i18n="chat.c2"></span><span data-i18n="chat.c3"></span></div></div>
+              <div class="abub g" data-i18n="chat.q2"></div>
+            </div>
+            <div class="pnav"><span class="pn">🏠</span><span class="pn">🧭</span><span class="pn on">💬</span><span class="pn">👤</span></div>
           </div>
         </div>
       </div>
@@ -484,23 +519,23 @@
     <section class="np">
       <div class="wrap">
         <div class="shead"><p class="eyebrow" data-i18n="hotels.k"></p><h2 data-i18n="crm.title"></h2><p data-i18n="crm.sub"></p></div>
-        <div class="crm ccar" data-interval="4600">
-          <div class="crmwin">
-            <aside class="crside">
-              <div class="crlogo"><span class="cs">CS</span><div><b>Coeur-Soleil</b><span data-i18n="cr.side"></span></div></div>
-              <nav class="crnav">
-                <a data-nav class="navon"><span>🏠</span><span data-i18n="cr.n1"></span></a>
-                <a data-nav><span>🗺️</span><span data-i18n="cr.n2"></span></a>
-                <a data-nav><span>📈</span><span data-i18n="cr.n3"></span></a>
-                <a><span>👥</span><span data-i18n="cr.n4"></span></a>
-                <a><span>🧾</span><span data-i18n="cr.n5"></span></a>
-              </nav>
-            </aside>
-            <div class="crmain">
-              <div class="crtop"><span class="crhotel">Hôtel Rive-Nord · Laval</span><span class="crctrls"><span class="crchip">EN</span><span class="crchip">☀</span><span class="crchip gold">⟳</span></span></div>
-              <div class="crstage">
-                <div class="ctab on">
-                  <div class="ctitle" data-i18n="cr.apT"></div>
+        <div class="cdeck deck" data-interval="4200">
+          <div class="crm deckcard">
+            <div class="crmwin">
+              <aside class="crside">
+                <div class="crlogo"><span class="cs">CS</span><div><b>Coeur-Soleil</b><span data-i18n="cr.side"></span></div></div>
+                <nav class="crnav">
+                  <a class="navon"><span>🏠</span><span data-i18n="cr.n1"></span></a>
+                  <a><span>🗺️</span><span data-i18n="cr.n2"></span></a>
+                  <a><span>📈</span><span data-i18n="cr.n3"></span></a>
+                  <a><span>👥</span><span data-i18n="cr.n4"></span></a>
+                  <a><span>🧾</span><span data-i18n="cr.n5"></span></a>
+                </nav>
+              </aside>
+              <div class="crmain">
+                <div class="crtop"><span class="crhotel">Hôtel Rive-Nord · Laval</span><span class="crctrls"><span class="crchip">EN</span><span class="crchip">☀</span><span class="crchip gold">⟳</span></span></div>
+                <div class="crbody">
+                  <div class="crhead"><span class="ct2" data-i18n="cr.apT"></span><span class="crpills"><span>1 j</span><span class="on">7 j</span><span>30 j</span></span></div>
                   <div class="crkpis">
                     <div class="crk"><div class="v b">178 $</div><div class="l" data-i18n="cr.k1l"></div></div>
                     <div class="crk"><div class="v g">85 %</div><div class="l" data-i18n="cr.k2l"></div></div>
@@ -511,23 +546,55 @@
                     <div class="crcard"><div class="h" data-i18n="cr.evT"></div><div class="d" data-i18n="cr.evD"></div></div>
                     <div class="crcard"><div class="h" data-i18n="cr.recT"></div><div class="d" data-i18n="cr.recD"></div></div>
                   </div>
+                  <div class="crcard" style="margin-top:8px"><div class="h" data-i18n="cr.cf"></div><div class="crmini"><span>Auberge du Port — <b>+54 $/nuit</b></span><span>Motel Central — <b>177 $</b> · ★ 3,8</span></div></div>
                 </div>
-                <div class="ctab">
-                  <div class="ctitle" data-i18n="cr.coT"></div>
+              </div>
+            </div>
+          </div>
+          <div class="crm deckcard">
+            <div class="crmwin">
+              <aside class="crside">
+                <div class="crlogo"><span class="cs">CS</span><div><b>Coeur-Soleil</b><span data-i18n="cr.side"></span></div></div>
+                <nav class="crnav">
+                  <a><span>🏠</span><span data-i18n="cr.n1"></span></a>
+                  <a class="navon"><span>🗺️</span><span data-i18n="cr.n2"></span></a>
+                  <a><span>📈</span><span data-i18n="cr.n3"></span></a>
+                  <a><span>👥</span><span data-i18n="cr.n4"></span></a>
+                  <a><span>🧾</span><span data-i18n="cr.n5"></span></a>
+                </nav>
+              </aside>
+              <div class="crmain">
+                <div class="crtop"><span class="crhotel">Hôtel Rive-Nord · Laval</span><span class="crctrls"><span class="crchip">EN</span><span class="crchip">☀</span><span class="crchip gold">⟳</span></span></div>
+                <div class="crbody">
+                  <div class="crhead"><span class="ct2" data-i18n="cr.coT"></span><span class="crbadge" data-i18n="cr.live"></span></div>
                   <div class="crstats">
                     <div class="crstat g"><div class="v">169 $</div><div class="l" data-i18n="cr.med"></div></div>
                     <div class="crstat p"><div class="v">110–371 $</div><div class="l" data-i18n="cr.range"></div></div>
                     <div class="crstat b"><div class="v">178 $</div><div class="l" data-i18n="cr.you"></div></div>
                   </div>
                   <div class="crnote" data-i18n="cr.conote"></div>
-                  <div class="crcomp">
-                    <div class="crrow"><span class="nm">Auberge du Port</span><span class="meta">★ 4,1 · 2,4 km</span><span class="pr">161 $</span></div>
-                    <div class="crrow"><span class="nm">Motel Central</span><span class="meta">★ 3,8 · 4,6 km</span><span class="pr">177 $</span></div>
-                    <div class="crrow"><span class="nm">Hôtel Rive-Sud</span><span class="meta">★ 3,5 · 7,0 km</span><span class="pr">208 $</span></div>
-                  </div>
+                  <div class="crmap"><div class="ring"></div><span class="pin you" style="left:52%;top:56%">178 $</span><span class="pin cmp" style="left:63%;top:66%">161 $</span><span class="pin cmp" style="left:45%;top:72%">177 $</span><span class="pin oth" style="left:37%;top:45%">208 $</span><span class="pin oth" style="left:71%;top:34%">144 $</span></div>
                 </div>
-                <div class="ctab">
-                  <div class="ctitle" data-i18n="cr.foT"></div>
+              </div>
+            </div>
+          </div>
+          <div class="crm deckcard">
+            <div class="crmwin">
+              <aside class="crside">
+                <div class="crlogo"><span class="cs">CS</span><div><b>Coeur-Soleil</b><span data-i18n="cr.side"></span></div></div>
+                <nav class="crnav">
+                  <a><span>🏠</span><span data-i18n="cr.n1"></span></a>
+                  <a><span>🗺️</span><span data-i18n="cr.n2"></span></a>
+                  <a class="navon"><span>📈</span><span data-i18n="cr.n3"></span></a>
+                  <a><span>👥</span><span data-i18n="cr.n4"></span></a>
+                  <a><span>🧾</span><span data-i18n="cr.n5"></span></a>
+                </nav>
+              </aside>
+              <div class="crmain">
+                <div class="crtop"><span class="crhotel">Hôtel Rive-Nord · Laval</span><span class="crctrls"><span class="crchip">EN</span><span class="crchip">☀</span><span class="crchip gold">⟳</span></span></div>
+                <div class="crbody">
+                  <div class="crhead"><span class="ct2" data-i18n="cr.foT"></span><span class="crbadge gold" data-i18n="cr.dyn"></span></div>
+                  <div class="crsub" data-i18n="cr.fsub"></div>
                   <div class="crbars"><i class="g" style="height:72%"></i><i style="height:44%"></i><i style="height:38%"></i><i class="a" style="height:52%"></i><i style="height:40%"></i><i class="g" style="height:74%"></i><i class="g" style="height:82%"></i><i style="height:46%"></i><i class="a" style="height:56%"></i><i style="height:42%"></i><i style="height:60%"></i><i class="g" style="height:78%"></i><i class="g" style="height:88%"></i><i class="a" style="height:58%"></i><i style="height:48%"></i><i class="g" style="height:70%"></i><i style="height:54%"></i><i class="a" style="height:62%"></i><i style="height:50%"></i><i class="g" style="height:96%"></i></div>
                   <div class="crgain" data-i18n="cr.gain"></div>
                   <div class="crleg"><span><i style="background:#1fa855"></i><span data-i18n="cr.lg1"></span></span><span><i style="background:#e0900c"></i><span data-i18n="cr.lg2"></span></span><span><i style="background:#8a93a6"></i><span data-i18n="cr.lg3"></span></span></div>
@@ -535,7 +602,6 @@
               </div>
             </div>
           </div>
-          <div class="cdots"></div>
         </div>
       </div>
     </section>
@@ -599,23 +665,23 @@
     <section class="np">
       <div class="wrap">
         <p class="eyebrow" style="text-align:center;margin-bottom:16px" data-i18n="crm.glimpse"></p>
-        <div class="crm ccar" data-interval="4600">
-          <div class="crmwin">
-            <aside class="crside">
-              <div class="crlogo"><span class="cs">CS</span><div><b>Coeur-Soleil</b><span data-i18n="cr.side"></span></div></div>
-              <nav class="crnav">
-                <a data-nav class="navon"><span>🏠</span><span data-i18n="cr.n1"></span></a>
-                <a data-nav><span>🗺️</span><span data-i18n="cr.n2"></span></a>
-                <a data-nav><span>📈</span><span data-i18n="cr.n3"></span></a>
-                <a><span>👥</span><span data-i18n="cr.n4"></span></a>
-                <a><span>🧾</span><span data-i18n="cr.n5"></span></a>
-              </nav>
-            </aside>
-            <div class="crmain">
-              <div class="crtop"><span class="crhotel">Hôtel Rive-Nord · Laval</span><span class="crctrls"><span class="crchip">EN</span><span class="crchip">☀</span><span class="crchip gold">⟳</span></span></div>
-              <div class="crstage">
-                <div class="ctab on">
-                  <div class="ctitle" data-i18n="cr.apT"></div>
+        <div class="cdeck deck" data-interval="4200">
+          <div class="crm deckcard">
+            <div class="crmwin">
+              <aside class="crside">
+                <div class="crlogo"><span class="cs">CS</span><div><b>Coeur-Soleil</b><span data-i18n="cr.side"></span></div></div>
+                <nav class="crnav">
+                  <a class="navon"><span>🏠</span><span data-i18n="cr.n1"></span></a>
+                  <a><span>🗺️</span><span data-i18n="cr.n2"></span></a>
+                  <a><span>📈</span><span data-i18n="cr.n3"></span></a>
+                  <a><span>👥</span><span data-i18n="cr.n4"></span></a>
+                  <a><span>🧾</span><span data-i18n="cr.n5"></span></a>
+                </nav>
+              </aside>
+              <div class="crmain">
+                <div class="crtop"><span class="crhotel">Hôtel Rive-Nord · Laval</span><span class="crctrls"><span class="crchip">EN</span><span class="crchip">☀</span><span class="crchip gold">⟳</span></span></div>
+                <div class="crbody">
+                  <div class="crhead"><span class="ct2" data-i18n="cr.apT"></span><span class="crpills"><span>1 j</span><span class="on">7 j</span><span>30 j</span></span></div>
                   <div class="crkpis">
                     <div class="crk"><div class="v b">178 $</div><div class="l" data-i18n="cr.k1l"></div></div>
                     <div class="crk"><div class="v g">85 %</div><div class="l" data-i18n="cr.k2l"></div></div>
@@ -626,23 +692,55 @@
                     <div class="crcard"><div class="h" data-i18n="cr.evT"></div><div class="d" data-i18n="cr.evD"></div></div>
                     <div class="crcard"><div class="h" data-i18n="cr.recT"></div><div class="d" data-i18n="cr.recD"></div></div>
                   </div>
+                  <div class="crcard" style="margin-top:8px"><div class="h" data-i18n="cr.cf"></div><div class="crmini"><span>Auberge du Port — <b>+54 $/nuit</b></span><span>Motel Central — <b>177 $</b> · ★ 3,8</span></div></div>
                 </div>
-                <div class="ctab">
-                  <div class="ctitle" data-i18n="cr.coT"></div>
+              </div>
+            </div>
+          </div>
+          <div class="crm deckcard">
+            <div class="crmwin">
+              <aside class="crside">
+                <div class="crlogo"><span class="cs">CS</span><div><b>Coeur-Soleil</b><span data-i18n="cr.side"></span></div></div>
+                <nav class="crnav">
+                  <a><span>🏠</span><span data-i18n="cr.n1"></span></a>
+                  <a class="navon"><span>🗺️</span><span data-i18n="cr.n2"></span></a>
+                  <a><span>📈</span><span data-i18n="cr.n3"></span></a>
+                  <a><span>👥</span><span data-i18n="cr.n4"></span></a>
+                  <a><span>🧾</span><span data-i18n="cr.n5"></span></a>
+                </nav>
+              </aside>
+              <div class="crmain">
+                <div class="crtop"><span class="crhotel">Hôtel Rive-Nord · Laval</span><span class="crctrls"><span class="crchip">EN</span><span class="crchip">☀</span><span class="crchip gold">⟳</span></span></div>
+                <div class="crbody">
+                  <div class="crhead"><span class="ct2" data-i18n="cr.coT"></span><span class="crbadge" data-i18n="cr.live"></span></div>
                   <div class="crstats">
                     <div class="crstat g"><div class="v">169 $</div><div class="l" data-i18n="cr.med"></div></div>
                     <div class="crstat p"><div class="v">110–371 $</div><div class="l" data-i18n="cr.range"></div></div>
                     <div class="crstat b"><div class="v">178 $</div><div class="l" data-i18n="cr.you"></div></div>
                   </div>
                   <div class="crnote" data-i18n="cr.conote"></div>
-                  <div class="crcomp">
-                    <div class="crrow"><span class="nm">Auberge du Port</span><span class="meta">★ 4,1 · 2,4 km</span><span class="pr">161 $</span></div>
-                    <div class="crrow"><span class="nm">Motel Central</span><span class="meta">★ 3,8 · 4,6 km</span><span class="pr">177 $</span></div>
-                    <div class="crrow"><span class="nm">Hôtel Rive-Sud</span><span class="meta">★ 3,5 · 7,0 km</span><span class="pr">208 $</span></div>
-                  </div>
+                  <div class="crmap"><div class="ring"></div><span class="pin you" style="left:52%;top:56%">178 $</span><span class="pin cmp" style="left:63%;top:66%">161 $</span><span class="pin cmp" style="left:45%;top:72%">177 $</span><span class="pin oth" style="left:37%;top:45%">208 $</span><span class="pin oth" style="left:71%;top:34%">144 $</span></div>
                 </div>
-                <div class="ctab">
-                  <div class="ctitle" data-i18n="cr.foT"></div>
+              </div>
+            </div>
+          </div>
+          <div class="crm deckcard">
+            <div class="crmwin">
+              <aside class="crside">
+                <div class="crlogo"><span class="cs">CS</span><div><b>Coeur-Soleil</b><span data-i18n="cr.side"></span></div></div>
+                <nav class="crnav">
+                  <a><span>🏠</span><span data-i18n="cr.n1"></span></a>
+                  <a><span>🗺️</span><span data-i18n="cr.n2"></span></a>
+                  <a class="navon"><span>📈</span><span data-i18n="cr.n3"></span></a>
+                  <a><span>👥</span><span data-i18n="cr.n4"></span></a>
+                  <a><span>🧾</span><span data-i18n="cr.n5"></span></a>
+                </nav>
+              </aside>
+              <div class="crmain">
+                <div class="crtop"><span class="crhotel">Hôtel Rive-Nord · Laval</span><span class="crctrls"><span class="crchip">EN</span><span class="crchip">☀</span><span class="crchip gold">⟳</span></span></div>
+                <div class="crbody">
+                  <div class="crhead"><span class="ct2" data-i18n="cr.foT"></span><span class="crbadge gold" data-i18n="cr.dyn"></span></div>
+                  <div class="crsub" data-i18n="cr.fsub"></div>
                   <div class="crbars"><i class="g" style="height:72%"></i><i style="height:44%"></i><i style="height:38%"></i><i class="a" style="height:52%"></i><i style="height:40%"></i><i class="g" style="height:74%"></i><i class="g" style="height:82%"></i><i style="height:46%"></i><i class="a" style="height:56%"></i><i style="height:42%"></i><i style="height:60%"></i><i class="g" style="height:78%"></i><i class="g" style="height:88%"></i><i class="a" style="height:58%"></i><i style="height:48%"></i><i class="g" style="height:70%"></i><i style="height:54%"></i><i class="a" style="height:62%"></i><i style="height:50%"></i><i class="g" style="height:96%"></i></div>
                   <div class="crgain" data-i18n="cr.gain"></div>
                   <div class="crleg"><span><i style="background:#1fa855"></i><span data-i18n="cr.lg1"></span></span><span><i style="background:#e0900c"></i><span data-i18n="cr.lg2"></span></span><span><i style="background:#8a93a6"></i><span data-i18n="cr.lg3"></span></span></div>
@@ -650,7 +748,6 @@
               </div>
             </div>
           </div>
-          <div class="cdots"></div>
         </div>
       </div>
     </section>
@@ -777,6 +874,7 @@ var T={
   "cr.evT":"Événements","cr.evD":"Festival au parc — forte demande samedi.","cr.recT":"Recommandation","cr.recD":"Forte demande dès samedi — tarif jusqu'à 190 $.",
   "cr.med":"Médiane comparables","cr.range":"Fourchette du marché","cr.you":"Votre tarif","cr.conote":"Votre 178 $ vs le plus proche 144 $ — vous êtes au-dessus.",
   "cr.gain":"+2 221 $ vs votre tarif actuel · 30 nuits","cr.lg1":"forte","cr.lg2":"moyenne","cr.lg3":"basse",
+  "cr.live":"20 concurrents · en direct","cr.dyn":"Tarification dynamique","cr.fsub":"Tarif/nuit 155–205 $ · médiane 169 $","cr.cf":"Concurrents — ce qu'ils font",
   "sec1.eyebrow":"Le concierge","sec1.title":"Alfred connaît votre hôtel, votre quartier et vos clients.","sec1.sub":"Un vrai assistant IA, nourri de données réelles — pas un menu figé. Il recommande, réserve et guide, dans la langue de chaque invité.",
   "f1.t":"Recommandations par envie","f1.p":"Détente, famille, gastronomie, plein air : l'invité choisit son humeur, Alfred classe les meilleures options autour de l'hôtel selon la distance, la météo et l'heure.",
   "f2.t":"Réservations & menus en direct","f2.p":"Réserver une table, consulter un menu, obtenir un itinéraire — sans quitter la conversation. L'expérience d'un grand hôtel, pour chaque établissement.",
@@ -837,6 +935,7 @@ var T={
   "cr.evT":"Events","cr.evD":"Park festival — high demand Saturday.","cr.recT":"Recommendation","cr.recD":"High demand from Saturday — rate up to $190.",
   "cr.med":"Comparables median","cr.range":"Market range","cr.you":"Your rate","cr.conote":"Your $178 vs nearest $144 — you're above.",
   "cr.gain":"+$2,221 vs your current rate · 30 nights","cr.lg1":"high","cr.lg2":"medium","cr.lg3":"low",
+  "cr.live":"20 competitors · live","cr.dyn":"Dynamic pricing","cr.fsub":"Rate/night $155–205 · median $169","cr.cf":"Competitors — what they're doing",
   "sec1.eyebrow":"The concierge","sec1.title":"Alfred knows your hotel, your neighbourhood and your guests.","sec1.sub":"A real AI assistant, fed by live data — not a static menu. It recommends, books and guides, in each guest's language.",
   "f1.t":"Recommendations by mood","f1.p":"Relax, family, dining, outdoors: the guest picks a mood, and Alfred ranks the best options around the hotel by distance, weather and time of day.",
   "f2.t":"Live bookings & menus","f2.p":"Book a table, view a menu, get directions — without leaving the chat. The experience of a grand hotel, for every property.",
@@ -897,6 +996,7 @@ var T={
   "cr.evT":"Eventos","cr.evD":"Festival en el parque — alta demanda el sábado.","cr.recT":"Recomendación","cr.recD":"Alta demanda desde el sábado — tarifa hasta 190 $.",
   "cr.med":"Mediana comparables","cr.range":"Rango del mercado","cr.you":"Su tarifa","cr.conote":"Su 178 $ vs el más cercano 144 $ — por encima.",
   "cr.gain":"+2 221 $ vs su tarifa actual · 30 noches","cr.lg1":"alta","cr.lg2":"media","cr.lg3":"baja",
+  "cr.live":"20 competidores · en vivo","cr.dyn":"Tarificación dinámica","cr.fsub":"Tarifa/noche 155–205 $ · mediana 169 $","cr.cf":"Competencia — qué hacen",
   "sec1.eyebrow":"El conserje","sec1.title":"Alfred conoce su hotel, su barrio y sus clientes.","sec1.sub":"Un verdadero asistente de IA, alimentado con datos reales — no un menú fijo. Recomienda, reserva y guía, en el idioma de cada huésped.",
   "f1.t":"Recomendaciones por antojo","f1.p":"Relax, familia, gastronomía, aire libre: el huésped elige su estado de ánimo y Alfred ordena las mejores opciones cerca del hotel por distancia, clima y hora.",
   "f2.t":"Reservas y menús en vivo","f2.p":"Reservar una mesa, ver un menú, obtener la ruta — sin salir de la conversación. La experiencia de un gran hotel, para cada establecimiento.",
@@ -996,17 +1096,17 @@ function setupReveal(page){
 var _hdr=document.querySelector("header");
 window.addEventListener("scroll",function(){if(_hdr)_hdr.classList.toggle("scrolled",window.scrollY>8);},{passive:true});
 
-/* ---------- carousels (auto-rotate guest app + CRM tabs) ---------- */
-document.querySelectorAll('.pcar,.ccar').forEach(function(root){
-  var slides=[].slice.call(root.querySelectorAll('.pscreen,.ctab'));
-  if(slides.length<2)return;
-  var dotsC=root.querySelector('.cdots'), navs=root.querySelectorAll('[data-nav]'), i=0, t;
-  var dots=slides.map(function(s,idx){var b=document.createElement('button');b.className='cdot'+(idx===0?' on':'');b.setAttribute('aria-label','slide '+(idx+1));b.addEventListener('click',function(){show(idx);reset();});if(dotsC)dotsC.appendChild(b);return b;});
-  function show(n){i=(n+slides.length)%slides.length;slides.forEach(function(s,idx){s.classList.toggle('on',idx===i);});dots.forEach(function(d,idx){d.classList.toggle('on',idx===i);});navs.forEach(function(nv,idx){nv.classList.toggle('navon',idx===i);});}
-  function reset(){clearInterval(t);if(!REDUCE)t=setInterval(function(){show(i+1);},+root.dataset.interval||4000);}
-  root.addEventListener('mouseenter',function(){clearInterval(t);});
-  root.addEventListener('mouseleave',reset);
-  show(0);reset();
+/* ---------- stacked auto-flipping decks (always rotate) ---------- */
+document.querySelectorAll('.deck').forEach(function(deck){
+  var cards=[].slice.call(deck.querySelectorAll('.deckcard'));
+  if(cards.length<2)return;
+  var n=cards.length, cur=0, t, iv=+deck.dataset.interval||3600;
+  function layout(){cards.forEach(function(c,idx){var p=(idx-cur+n)%n;c.dataset.pos=p;c.style.zIndex=String(n-p);c.setAttribute('aria-hidden',p!==0?'true':'false');c.style.pointerEvents=p===0?'auto':'none';});}
+  function next(){cur=(cur+1)%n;layout();}
+  function start(){clearInterval(t);t=setInterval(next,iv);}
+  deck.addEventListener('mouseenter',function(){clearInterval(t);});
+  deck.addEventListener('mouseleave',start);
+  layout();start();
 });
 
 applyLang("fr");
