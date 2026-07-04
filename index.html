@@ -88,6 +88,18 @@
   .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:2px}
   .chips span{font-size:11.5px;border:1px solid var(--gold);color:var(--gold-deep);border-radius:999px;padding:5px 11px;font-weight:600}
   :root[data-theme="dark"] .chips span{color:var(--gold)}
+  .vcard{align-self:flex-start;max-width:92%;background:var(--card);border:1px solid var(--hair);border-radius:16px;border-bottom-left-radius:5px;padding:12px 13px;box-shadow:0 8px 20px -14px rgba(20,20,30,.4)}
+  .vtop{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .vname{font-family:var(--head);font-weight:650;font-size:14px;color:var(--ink)}
+  .vrate{font-size:12px;color:var(--gold-deep);font-weight:700;white-space:nowrap}
+  :root[data-theme="dark"] .vrate{color:var(--gold)}
+  .vchips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+  .vchip{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);background:color-mix(in srgb,var(--ink) 5%,var(--card));border:1px solid var(--hair);border-radius:999px;padding:3px 9px;font-weight:500}
+  .vchip.open i{width:7px;height:7px;border-radius:50%;background:#33b56b;display:inline-block}
+  .vwhy{font-size:12.5px;color:var(--ink-soft);line-height:1.45;margin-bottom:10px}
+  .vacts{display:flex;gap:6px;flex-wrap:wrap}
+  .vacts span{font-size:11.5px;border:1px solid var(--gold);color:var(--gold-deep);border-radius:999px;padding:5px 11px;font-weight:600}
+  :root[data-theme="dark"] .vacts span{color:var(--gold)}
 
   section{padding:clamp(50px,8vw,92px) 0}
   .np{padding-top:0}
@@ -236,8 +248,13 @@
           </div>
           <div class="body">
             <div class="bub g" data-i18n="chat.q1"></div>
-            <div class="bub a" data-i18n-html="chat.a1"></div>
-            <div class="chips"><span data-i18n="chat.c1"></span><span data-i18n="chat.c2"></span><span data-i18n="chat.c3"></span></div>
+            <div class="bub a" data-i18n="chat.a1"></div>
+            <div class="vcard">
+              <div class="vtop"><span class="vname" data-i18n="chat.vname"></span><span class="vrate" data-i18n="chat.rating"></span></div>
+              <div class="vchips"><span class="vchip open"><i></i><span data-i18n="chat.open"></span></span><span class="vchip" data-i18n="chat.walk"></span></div>
+              <div class="vwhy" data-i18n="chat.vwhy"></div>
+              <div class="vacts"><span data-i18n="chat.c1"></span><span data-i18n="chat.c2"></span><span data-i18n="chat.c3"></span></div>
+            </div>
             <div class="bub g" data-i18n="chat.q2"></div>
           </div>
         </div>
@@ -449,9 +466,11 @@ var T={
   "hero.sub":"Coeur-Soleil transforme le vieux cartable de chambre en un concierge virtuel — Alfred — adapté à chaque hôtel et à chaque client. Vos invités trouvent tout en un instant ; vous, vous comprenez enfin qui ils sont.",
   "hero.cta2":"Voir comment ça marche","hero.trust":"Conçu au Québec · conforme à la Loi 25 · déployé par code QR en chambre.",
   "chat.role":"Hôtel du Vieux-Port · votre concierge",
-  "chat.q1":"Une belle terrasse pour souper à deux ce soir ?",
-  "chat.a1":"Avec plaisir ! À 4 min à pied, <b>La Terrasse du Marché</b> — cuisine locale, ambiance tranquille. Une table se libère à 19 h 30.",
-  "chat.c1":"Réserver","chat.c2":"Voir le menu","chat.c3":"Itinéraire","chat.q2":"Parfait, réserve pour deux.",
+  "chat.q1":"Une terrasse tranquille pour souper à deux ce soir ?",
+  "chat.a1":"Voici ce que je vous suggère, à quelques pas :",
+  "chat.vname":"La Terrasse du Marché","chat.rating":"★ 4,7","chat.open":"Ouvert","chat.walk":"4 min à pied",
+  "chat.vwhy":"Cuisine locale, ambiance calme — idéal pour une soirée en amoureux.",
+  "chat.c1":"Réserver","chat.c2":"Menu","chat.c3":"Itinéraire","chat.q2":"Parfait, réserve pour deux.",
   "sec1.eyebrow":"Le concierge","sec1.title":"Alfred connaît votre hôtel, votre quartier et vos clients.","sec1.sub":"Un vrai assistant IA, nourri de données réelles — pas un menu figé. Il recommande, réserve et guide, dans la langue de chaque invité.",
   "f1.t":"Recommandations par envie","f1.p":"Détente, famille, gastronomie, plein air : l'invité choisit son humeur, Alfred classe les meilleures options autour de l'hôtel selon la distance, la météo et l'heure.",
   "f2.t":"Réservations & menus en direct","f2.p":"Réserver une table, consulter un menu, obtenir un itinéraire — sans quitter la conversation. L'expérience d'un grand hôtel, pour chaque établissement.",
@@ -461,7 +480,7 @@ var T={
   "partners.k":"Pour les partenaires","partners.title":"Soyez recommandé au bon moment.","partners.sub":"Restaurants, activités, commerces locaux : apparaissez devant des voyageurs qui cherchent exactement ce que vous offrez.",
   "partners.li1":"Mis en avant auprès des clients des hôtels partenaires","partners.li2":"Rapports mensuels : vues, clics, visites générées","partners.li3":"Un tarif fixe, simple, sans commission","partners.btn":"Devenir partenaire",
   "steps.eyebrow":"Comment ça marche","steps.title":"Opérationnel en quelques jours, pas en quelques mois.","steps.n1":"ÉTAPE 01","steps.n2":"ÉTAPE 02","steps.n3":"ÉTAPE 03",
-  "s1.t":"On configure votre hôtel","s1.p":"Un court formulaire, et votre concierge est personnalisé : services, quartier, partenaires, ton de voix.",
+  "s1.t":"On configure votre hôtel","s1.p":"Un court formulaire sur votre hôtel et son quartier ; on y greffe notre réseau de partenaires, et votre concierge est prêt.",
   "s2.t":"Un code QR en chambre","s2.p":"Vos clients scannent et accèdent à Alfred au Wi-Fi — aucune application à installer.",
   "s3.t":"Vous recevez l'intelligence","s3.p":"Chaque séjour alimente votre tableau de bord : besoins, tendances, prévisions.",
   "st1":"années au service des hôtels québécois","st2":"hôtels du Québec cartographiés","st3":"établissements et commerces référencés","st4":"conforme à la Loi 25 sur la vie privée",
@@ -495,9 +514,11 @@ var T={
   "hero.sub":"Coeur-Soleil turns the tired in-room binder into a virtual concierge — Alfred — tailored to each hotel and each guest. Your visitors find everything in an instant; you finally understand who they are.",
   "hero.cta2":"See how it works","hero.trust":"Built in Québec · Law 25 compliant · deployed by in-room QR code.",
   "chat.role":"Vieux-Port Hotel · your concierge",
-  "chat.q1":"A nice terrace for dinner for two tonight?",
-  "chat.a1":"Gladly! A 4-min walk away, <b>La Terrasse du Marché</b> — local cuisine, quiet atmosphere. A table opens at 7:30 pm.",
-  "chat.c1":"Book","chat.c2":"See menu","chat.c3":"Directions","chat.q2":"Perfect, book for two.",
+  "chat.q1":"A quiet terrace for dinner for two tonight?",
+  "chat.a1":"Here's what I'd suggest, just steps away:",
+  "chat.vname":"La Terrasse du Marché","chat.rating":"★ 4.7","chat.open":"Open","chat.walk":"4-min walk",
+  "chat.vwhy":"Local cuisine, calm atmosphere — perfect for a date night.",
+  "chat.c1":"Book","chat.c2":"Menu","chat.c3":"Directions","chat.q2":"Perfect, book for two.",
   "sec1.eyebrow":"The concierge","sec1.title":"Alfred knows your hotel, your neighbourhood and your guests.","sec1.sub":"A real AI assistant, fed by live data — not a static menu. It recommends, books and guides, in each guest's language.",
   "f1.t":"Recommendations by mood","f1.p":"Relax, family, dining, outdoors: the guest picks a mood, and Alfred ranks the best options around the hotel by distance, weather and time of day.",
   "f2.t":"Live bookings & menus","f2.p":"Book a table, view a menu, get directions — without leaving the chat. The experience of a grand hotel, for every property.",
@@ -507,7 +528,7 @@ var T={
   "partners.k":"For partners","partners.title":"Get recommended at the right moment.","partners.sub":"Restaurants, activities, local shops: appear in front of travellers looking for exactly what you offer.",
   "partners.li1":"Featured to guests of partner hotels","partners.li2":"Monthly reports: views, clicks, visits generated","partners.li3":"One simple flat fee, no commission","partners.btn":"Become a partner",
   "steps.eyebrow":"How it works","steps.title":"Live in days, not months.","steps.n1":"STEP 01","steps.n2":"STEP 02","steps.n3":"STEP 03",
-  "s1.t":"We set up your hotel","s1.p":"A short form, and your concierge is personalized: services, neighbourhood, partners, tone of voice.",
+  "s1.t":"We set up your hotel","s1.p":"A short form about your hotel and its neighbourhood; we add our partner network, and your concierge is ready.",
   "s2.t":"A QR code in the room","s2.p":"Guests scan and reach Alfred over Wi-Fi — no app to install.",
   "s3.t":"You receive the intelligence","s3.p":"Every stay feeds your dashboard: needs, trends, forecasts.",
   "st1":"years serving Québec hotels","st2":"Québec hotels mapped","st3":"establishments and businesses listed","st4":"compliant with Law 25 on privacy",
@@ -541,9 +562,11 @@ var T={
   "hero.sub":"Coeur-Soleil convierte la vieja carpeta de habitación en un conserje virtual — Alfred — adaptado a cada hotel y a cada huésped. Sus visitantes encuentran todo al instante; usted por fin entiende quiénes son.",
   "hero.cta2":"Ver cómo funciona","hero.trust":"Creado en Quebec · conforme a la Ley 25 · desplegado por código QR en la habitación.",
   "chat.role":"Hotel du Vieux-Port · su conserje",
-  "chat.q1":"¿Una linda terraza para cenar en pareja esta noche?",
-  "chat.a1":"¡Con gusto! A 4 min a pie, <b>La Terrasse du Marché</b> — cocina local, ambiente tranquilo. Se libera una mesa a las 19:30.",
-  "chat.c1":"Reservar","chat.c2":"Ver el menú","chat.c3":"Cómo llegar","chat.q2":"Perfecto, reserva para dos.",
+  "chat.q1":"¿Una terraza tranquila para cenar en pareja esta noche?",
+  "chat.a1":"Esto es lo que le sugiero, a pocos pasos:",
+  "chat.vname":"La Terrasse du Marché","chat.rating":"★ 4,7","chat.open":"Abierto","chat.walk":"4 min a pie",
+  "chat.vwhy":"Cocina local, ambiente tranquilo — ideal para una cena romántica.",
+  "chat.c1":"Reservar","chat.c2":"Menú","chat.c3":"Cómo llegar","chat.q2":"Perfecto, reserva para dos.",
   "sec1.eyebrow":"El conserje","sec1.title":"Alfred conoce su hotel, su barrio y sus clientes.","sec1.sub":"Un verdadero asistente de IA, alimentado con datos reales — no un menú fijo. Recomienda, reserva y guía, en el idioma de cada huésped.",
   "f1.t":"Recomendaciones por antojo","f1.p":"Relax, familia, gastronomía, aire libre: el huésped elige su estado de ánimo y Alfred ordena las mejores opciones cerca del hotel por distancia, clima y hora.",
   "f2.t":"Reservas y menús en vivo","f2.p":"Reservar una mesa, ver un menú, obtener la ruta — sin salir de la conversación. La experiencia de un gran hotel, para cada establecimiento.",
@@ -553,7 +576,7 @@ var T={
   "partners.k":"Para socios","partners.title":"Sea recomendado en el momento justo.","partners.sub":"Restaurantes, actividades, comercios locales: aparezca ante viajeros que buscan exactamente lo que usted ofrece.",
   "partners.li1":"Destacado ante los huéspedes de hoteles socios","partners.li2":"Informes mensuales: vistas, clics, visitas generadas","partners.li3":"Una tarifa fija y simple, sin comisión","partners.btn":"Ser socio",
   "steps.eyebrow":"Cómo funciona","steps.title":"Operativo en días, no en meses.","steps.n1":"PASO 01","steps.n2":"PASO 02","steps.n3":"PASO 03",
-  "s1.t":"Configuramos su hotel","s1.p":"Un breve formulario, y su conserje queda personalizado: servicios, barrio, socios, tono de voz.",
+  "s1.t":"Configuramos su hotel","s1.p":"Un breve formulario sobre su hotel y su barrio; añadimos nuestra red de socios, y su conserje queda listo.",
   "s2.t":"Un código QR en la habitación","s2.p":"Sus clientes escanean y acceden a Alfred por Wi-Fi — sin instalar ninguna app.",
   "s3.t":"Usted recibe la inteligencia","s3.p":"Cada estadía alimenta su panel: necesidades, tendencias, previsiones.",
   "st1":"años al servicio de los hoteles de Quebec","st2":"hoteles de Quebec mapeados","st3":"establecimientos y comercios registrados","st4":"conforme a la Ley 25 de privacidad",
