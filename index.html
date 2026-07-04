@@ -159,6 +159,67 @@
   .abub{max-width:85%;padding:9px 12px;border-radius:14px;font-size:12.5px;line-height:1.45;margin-bottom:8px}
   .abub.g{margin-left:auto;background:#2F77E0;color:#fff;border-bottom-right-radius:4px}
   .abub.a{background:var(--ascard);border:1px solid var(--asbord);color:var(--astext);border-bottom-left-radius:4px}
+  /* CRM window (rotating tabs, theme-adaptive) */
+  .crm{max-width:880px;margin:0 auto;--crbg:#f7f8fa;--crpanel:#fff;--crtext:#16202B;--crmut:#6b7078;--crbord:#e8eaee;--crside:#fff;--crchipbg:#eef0f3}
+  @media(prefers-color-scheme:dark){.crm{--crbg:#0b0f16;--crpanel:#141b25;--crtext:#eef2f8;--crmut:#97a3b2;--crbord:#212a36;--crside:#0e141d;--crchipbg:#1a2230}}
+  :root[data-theme="dark"] .crm{--crbg:#0b0f16;--crpanel:#141b25;--crtext:#eef2f8;--crmut:#97a3b2;--crbord:#212a36;--crside:#0e141d;--crchipbg:#1a2230}
+  :root[data-theme="light"] .crm{--crbg:#f7f8fa;--crpanel:#fff;--crtext:#16202B;--crmut:#6b7078;--crbord:#e8eaee;--crside:#fff;--crchipbg:#eef0f3}
+  .crmwin{display:flex;border:1px solid var(--crbord);border-radius:16px;overflow:hidden;background:var(--crbg);box-shadow:0 28px 64px -36px rgba(20,20,30,.5)}
+  .crside{width:186px;flex:none;background:var(--crside);border-right:1px solid var(--crbord);padding:15px 11px;display:flex;flex-direction:column;gap:16px}
+  @media(max-width:660px){.crside{display:none}}
+  .crlogo{display:flex;align-items:center;gap:9px}
+  .crlogo .cs{width:31px;height:31px;border-radius:9px;background:linear-gradient(150deg,#f0c96a,#d99a2b);color:#3a2a06;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center}
+  .crlogo b{display:block;font-size:12.5px;color:var(--crtext);font-family:var(--head)}
+  .crlogo span{font-size:10px;color:var(--crmut)}
+  .crnav{display:flex;flex-direction:column;gap:2px}
+  .crnav a{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--crmut);padding:8px 10px;border-radius:9px;font-weight:600}
+  .crnav a.navon{background:color-mix(in srgb,var(--gold) 15%,transparent);color:var(--gold-deep)}
+  :root[data-theme="dark"] .crnav a.navon{color:var(--gold)}
+  @media(prefers-color-scheme:dark){.crnav a.navon{color:var(--gold)}}
+  .crmain{flex:1;min-width:0;display:flex;flex-direction:column}
+  .crtop{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:1px solid var(--crbord)}
+  .crhotel{font-size:12px;color:var(--crmut);font-weight:600}
+  .crctrls{display:flex;gap:6px}
+  .crchip{font-size:11px;color:var(--crmut);background:var(--crchipbg);border-radius:8px;padding:5px 8px;font-weight:700}
+  .crchip.gold{color:#3a2a06;background:linear-gradient(150deg,#f0c96a,#e0900c)}
+  .crstage{position:relative;flex:1;min-height:322px}
+  .ctab{position:absolute;inset:0;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease;pointer-events:none;padding:15px;overflow:hidden}
+  .ctab.on{opacity:1;transform:none;pointer-events:auto}
+  .ctitle{font-family:var(--head);font-size:15.5px;font-weight:700;color:var(--crtext);margin-bottom:11px}
+  .crkpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:11px}
+  @media(max-width:520px){.crkpis{grid-template-columns:repeat(2,1fr)}}
+  .crk{border:1px solid var(--crbord);border-radius:11px;padding:9px 10px}
+  .crk .v{font-family:var(--head);font-size:17px;font-weight:700;color:var(--crtext);font-variant-numeric:tabular-nums}
+  .crk .v.g{color:#1fa855}.crk .v.b{color:#2F77E0}
+  .crk .l{font-size:10px;color:var(--crmut);margin-top:1px}
+  .crins{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  @media(max-width:520px){.crins{grid-template-columns:1fr}}
+  .crcard{border:1px solid var(--crbord);border-radius:11px;padding:11px}
+  .crcard .h{font-size:10.5px;color:var(--crmut);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
+  .crcard .d{font-size:12px;color:var(--crtext);line-height:1.4}
+  .crstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+  @media(max-width:520px){.crstats{grid-template-columns:1fr}}
+  .crstat{border:1px solid var(--crbord);border-left-width:3px;border-radius:11px;padding:10px 11px}
+  .crstat .v{font-family:var(--head);font-size:18px;font-weight:800}
+  .crstat .l{font-size:10px;color:var(--crmut);margin-top:1px}
+  .crstat.g{border-left-color:#1fa855}.crstat.g .v{color:#1fa855}
+  .crstat.p{border-left-color:#8b5cf6}.crstat.p .v{color:#8b5cf6}
+  .crstat.b{border-left-color:#2F77E0}.crstat.b .v{color:#2F77E0}
+  .crnote{font-size:11.5px;color:var(--crmut);margin-bottom:9px}
+  .crcomp{border:1px solid var(--crbord);border-radius:11px;overflow:hidden}
+  .crrow{display:flex;align-items:center;gap:10px;padding:9px 11px;border-bottom:1px solid var(--crbord)}
+  .crrow:last-child{border-bottom:0}
+  .crrow .nm{color:var(--crtext);font-weight:600;flex:1;font-size:12px}
+  .crrow .meta{color:var(--crmut);font-size:11px}
+  .crrow .pr{color:var(--crtext);font-weight:700;font-size:12px}
+  .crbars{display:flex;align-items:flex-end;gap:3px;height:112px;margin:4px 0 10px}
+  .crbars i{flex:1;border-radius:3px 3px 0 0;background:#8a93a6;display:block}
+  .crbars i.g{background:#1fa855}.crbars i.a{background:#e0900c}
+  .crgain{font-family:var(--head);font-size:15px;font-weight:700;color:#1fa855;margin-bottom:7px}
+  .crleg{display:flex;gap:12px;font-size:11px;color:var(--crmut)}
+  .crleg>span{display:inline-flex;align-items:center;gap:5px}
+  .crleg i{width:9px;height:9px;border-radius:3px;display:inline-block}
+  .ccar .cdot.on{width:16px;border-radius:999px;background:var(--gold)}
   .phone .top{background:var(--midnight);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:11px}
   .phone .top .who{line-height:1.25;display:flex;flex-direction:column}
   .phone .top .who .h{font-family:var(--head);font-weight:600;font-size:14.5px}
@@ -423,19 +484,58 @@
     <section class="np">
       <div class="wrap">
         <div class="shead"><p class="eyebrow" data-i18n="hotels.k"></p><h2 data-i18n="crm.title"></h2><p data-i18n="crm.sub"></p></div>
-        <div class="dash">
-          <div class="dashbar"><span class="dots"><i></i><i></i><i></i></span><span class="dashtitle">CRM · Hôtel Coeur-Soleil</span></div>
-          <div class="dashbody">
-            <div class="kpis">
-              <div class="kpi"><span class="kl" data-i18n="crm.k1"></span><span class="kv">78 %</span><span class="kd up">▲ 6 pts</span></div>
-              <div class="kpi"><span class="kl">ADR</span><span class="kv">189 $</span><span class="kd up">▲ 4 %</span></div>
-              <div class="kpi"><span class="kl">RevPAR</span><span class="kv">147 $</span><span class="kd up">▲ 9 %</span></div>
-            </div>
-            <div class="dashgrid">
-              <div class="panel"><div class="pl" data-i18n="crm.pos"></div><div class="posbar"><span class="fill" style="width:68%"></span><span class="mark" style="left:52%"></span></div><div class="poscap" data-i18n="crm.posc"></div></div>
-              <div class="panel accent"><div class="pl" data-i18n="crm.sugg"></div><div class="suggv">204 $</div><div class="poscap" data-i18n="crm.suggc"></div></div>
+        <div class="crm ccar" data-interval="4600">
+          <div class="crmwin">
+            <aside class="crside">
+              <div class="crlogo"><span class="cs">CS</span><div><b>Coeur-Soleil</b><span data-i18n="cr.side"></span></div></div>
+              <nav class="crnav">
+                <a data-nav class="navon"><span>🏠</span><span data-i18n="cr.n1"></span></a>
+                <a data-nav><span>🗺️</span><span data-i18n="cr.n2"></span></a>
+                <a data-nav><span>📈</span><span data-i18n="cr.n3"></span></a>
+                <a><span>👥</span><span data-i18n="cr.n4"></span></a>
+                <a><span>🧾</span><span data-i18n="cr.n5"></span></a>
+              </nav>
+            </aside>
+            <div class="crmain">
+              <div class="crtop"><span class="crhotel">Hôtel Rive-Nord · Laval</span><span class="crctrls"><span class="crchip">EN</span><span class="crchip">☀</span><span class="crchip gold">⟳</span></span></div>
+              <div class="crstage">
+                <div class="ctab on">
+                  <div class="ctitle" data-i18n="cr.apT"></div>
+                  <div class="crkpis">
+                    <div class="crk"><div class="v b">178 $</div><div class="l" data-i18n="cr.k1l"></div></div>
+                    <div class="crk"><div class="v g">85 %</div><div class="l" data-i18n="cr.k2l"></div></div>
+                    <div class="crk"><div class="v g">+2 221 $</div><div class="l" data-i18n="cr.k3l"></div></div>
+                    <div class="crk"><div class="v">8</div><div class="l" data-i18n="cr.k4l"></div></div>
+                  </div>
+                  <div class="crins">
+                    <div class="crcard"><div class="h" data-i18n="cr.evT"></div><div class="d" data-i18n="cr.evD"></div></div>
+                    <div class="crcard"><div class="h" data-i18n="cr.recT"></div><div class="d" data-i18n="cr.recD"></div></div>
+                  </div>
+                </div>
+                <div class="ctab">
+                  <div class="ctitle" data-i18n="cr.coT"></div>
+                  <div class="crstats">
+                    <div class="crstat g"><div class="v">169 $</div><div class="l" data-i18n="cr.med"></div></div>
+                    <div class="crstat p"><div class="v">110–371 $</div><div class="l" data-i18n="cr.range"></div></div>
+                    <div class="crstat b"><div class="v">178 $</div><div class="l" data-i18n="cr.you"></div></div>
+                  </div>
+                  <div class="crnote" data-i18n="cr.conote"></div>
+                  <div class="crcomp">
+                    <div class="crrow"><span class="nm">Auberge du Port</span><span class="meta">★ 4,1 · 2,4 km</span><span class="pr">161 $</span></div>
+                    <div class="crrow"><span class="nm">Motel Central</span><span class="meta">★ 3,8 · 4,6 km</span><span class="pr">177 $</span></div>
+                    <div class="crrow"><span class="nm">Hôtel Rive-Sud</span><span class="meta">★ 3,5 · 7,0 km</span><span class="pr">208 $</span></div>
+                  </div>
+                </div>
+                <div class="ctab">
+                  <div class="ctitle" data-i18n="cr.foT"></div>
+                  <div class="crbars"><i class="g" style="height:72%"></i><i style="height:44%"></i><i style="height:38%"></i><i class="a" style="height:52%"></i><i style="height:40%"></i><i class="g" style="height:74%"></i><i class="g" style="height:82%"></i><i style="height:46%"></i><i class="a" style="height:56%"></i><i style="height:42%"></i><i style="height:60%"></i><i class="g" style="height:78%"></i><i class="g" style="height:88%"></i><i class="a" style="height:58%"></i><i style="height:48%"></i><i class="g" style="height:70%"></i><i style="height:54%"></i><i class="a" style="height:62%"></i><i style="height:50%"></i><i class="g" style="height:96%"></i></div>
+                  <div class="crgain" data-i18n="cr.gain"></div>
+                  <div class="crleg"><span><i style="background:#1fa855"></i><span data-i18n="cr.lg1"></span></span><span><i style="background:#e0900c"></i><span data-i18n="cr.lg2"></span></span><span><i style="background:#8a93a6"></i><span data-i18n="cr.lg3"></span></span></div>
+                </div>
+              </div>
             </div>
           </div>
+          <div class="cdots"></div>
         </div>
       </div>
     </section>
@@ -499,19 +599,58 @@
     <section class="np">
       <div class="wrap">
         <p class="eyebrow" style="text-align:center;margin-bottom:16px" data-i18n="crm.glimpse"></p>
-        <div class="dash">
-          <div class="dashbar"><span class="dots"><i></i><i></i><i></i></span><span class="dashtitle">CRM · Hôtel Coeur-Soleil</span></div>
-          <div class="dashbody">
-            <div class="kpis">
-              <div class="kpi"><span class="kl" data-i18n="crm.k1"></span><span class="kv">78 %</span><span class="kd up">▲ 6 pts</span></div>
-              <div class="kpi"><span class="kl">ADR</span><span class="kv">189 $</span><span class="kd up">▲ 4 %</span></div>
-              <div class="kpi"><span class="kl">RevPAR</span><span class="kv">147 $</span><span class="kd up">▲ 9 %</span></div>
-            </div>
-            <div class="dashgrid">
-              <div class="panel"><div class="pl" data-i18n="crm.pos"></div><div class="posbar"><span class="fill" style="width:68%"></span><span class="mark" style="left:52%"></span></div><div class="poscap" data-i18n="crm.posc"></div></div>
-              <div class="panel accent"><div class="pl" data-i18n="crm.sugg"></div><div class="suggv">204 $</div><div class="poscap" data-i18n="crm.suggc"></div></div>
+        <div class="crm ccar" data-interval="4600">
+          <div class="crmwin">
+            <aside class="crside">
+              <div class="crlogo"><span class="cs">CS</span><div><b>Coeur-Soleil</b><span data-i18n="cr.side"></span></div></div>
+              <nav class="crnav">
+                <a data-nav class="navon"><span>🏠</span><span data-i18n="cr.n1"></span></a>
+                <a data-nav><span>🗺️</span><span data-i18n="cr.n2"></span></a>
+                <a data-nav><span>📈</span><span data-i18n="cr.n3"></span></a>
+                <a><span>👥</span><span data-i18n="cr.n4"></span></a>
+                <a><span>🧾</span><span data-i18n="cr.n5"></span></a>
+              </nav>
+            </aside>
+            <div class="crmain">
+              <div class="crtop"><span class="crhotel">Hôtel Rive-Nord · Laval</span><span class="crctrls"><span class="crchip">EN</span><span class="crchip">☀</span><span class="crchip gold">⟳</span></span></div>
+              <div class="crstage">
+                <div class="ctab on">
+                  <div class="ctitle" data-i18n="cr.apT"></div>
+                  <div class="crkpis">
+                    <div class="crk"><div class="v b">178 $</div><div class="l" data-i18n="cr.k1l"></div></div>
+                    <div class="crk"><div class="v g">85 %</div><div class="l" data-i18n="cr.k2l"></div></div>
+                    <div class="crk"><div class="v g">+2 221 $</div><div class="l" data-i18n="cr.k3l"></div></div>
+                    <div class="crk"><div class="v">8</div><div class="l" data-i18n="cr.k4l"></div></div>
+                  </div>
+                  <div class="crins">
+                    <div class="crcard"><div class="h" data-i18n="cr.evT"></div><div class="d" data-i18n="cr.evD"></div></div>
+                    <div class="crcard"><div class="h" data-i18n="cr.recT"></div><div class="d" data-i18n="cr.recD"></div></div>
+                  </div>
+                </div>
+                <div class="ctab">
+                  <div class="ctitle" data-i18n="cr.coT"></div>
+                  <div class="crstats">
+                    <div class="crstat g"><div class="v">169 $</div><div class="l" data-i18n="cr.med"></div></div>
+                    <div class="crstat p"><div class="v">110–371 $</div><div class="l" data-i18n="cr.range"></div></div>
+                    <div class="crstat b"><div class="v">178 $</div><div class="l" data-i18n="cr.you"></div></div>
+                  </div>
+                  <div class="crnote" data-i18n="cr.conote"></div>
+                  <div class="crcomp">
+                    <div class="crrow"><span class="nm">Auberge du Port</span><span class="meta">★ 4,1 · 2,4 km</span><span class="pr">161 $</span></div>
+                    <div class="crrow"><span class="nm">Motel Central</span><span class="meta">★ 3,8 · 4,6 km</span><span class="pr">177 $</span></div>
+                    <div class="crrow"><span class="nm">Hôtel Rive-Sud</span><span class="meta">★ 3,5 · 7,0 km</span><span class="pr">208 $</span></div>
+                  </div>
+                </div>
+                <div class="ctab">
+                  <div class="ctitle" data-i18n="cr.foT"></div>
+                  <div class="crbars"><i class="g" style="height:72%"></i><i style="height:44%"></i><i style="height:38%"></i><i class="a" style="height:52%"></i><i style="height:40%"></i><i class="g" style="height:74%"></i><i class="g" style="height:82%"></i><i style="height:46%"></i><i class="a" style="height:56%"></i><i style="height:42%"></i><i style="height:60%"></i><i class="g" style="height:78%"></i><i class="g" style="height:88%"></i><i class="a" style="height:58%"></i><i style="height:48%"></i><i class="g" style="height:70%"></i><i style="height:54%"></i><i class="a" style="height:62%"></i><i style="height:50%"></i><i class="g" style="height:96%"></i></div>
+                  <div class="crgain" data-i18n="cr.gain"></div>
+                  <div class="crleg"><span><i style="background:#1fa855"></i><span data-i18n="cr.lg1"></span></span><span><i style="background:#e0900c"></i><span data-i18n="cr.lg2"></span></span><span><i style="background:#8a93a6"></i><span data-i18n="cr.lg3"></span></span></div>
+                </div>
+              </div>
             </div>
           </div>
+          <div class="cdots"></div>
         </div>
       </div>
     </section>
@@ -632,6 +771,12 @@ var T={
   "crm.title":"Et pour vous ? Un poste de pilotage.","crm.sub":"Chaque séjour nourrit votre tableau de bord : tarifs, concurrence, prévisions — pour décider avec des données.","crm.glimpse":"Aperçu du tableau de bord",
   "crm.k1":"Occupation","crm.pos":"Position sur le marché","crm.posc":"Au-dessus de la médiane de votre comp-set.","crm.sugg":"Tarif suggéré ce soir","crm.suggc":"Demande forte · +8 % vs tarif actuel.",
   "sug.head":"Restaurants","sug.sub":"12 à proximité","sug.v1d":"Cuisine locale, ambiance calme.","sug.v2d":"Tapas & vins nature.","sug.v3d":"Fruits de mer, vue sur l'eau.",
+  "cr.side":"CRM hôtelier","cr.n1":"Aperçu","cr.n2":"Concurrents","cr.n3":"Prévision","cr.n4":"Invités","cr.n5":"Facturation",
+  "cr.apT":"Votre semaine en un coup d'œil","cr.coT":"Rate intelligence","cr.foT":"Vos tarifs recommandés — 30 nuits",
+  "cr.k1l":"Votre tarif","cr.k2l":"Occupation prévue","cr.k3l":"Gain / 30 nuits","cr.k4l":"Invités",
+  "cr.evT":"Événements","cr.evD":"Festival au parc — forte demande samedi.","cr.recT":"Recommandation","cr.recD":"Forte demande dès samedi — tarif jusqu'à 190 $.",
+  "cr.med":"Médiane comparables","cr.range":"Fourchette du marché","cr.you":"Votre tarif","cr.conote":"Votre 178 $ vs le plus proche 144 $ — vous êtes au-dessus.",
+  "cr.gain":"+2 221 $ vs votre tarif actuel · 30 nuits","cr.lg1":"forte","cr.lg2":"moyenne","cr.lg3":"basse",
   "sec1.eyebrow":"Le concierge","sec1.title":"Alfred connaît votre hôtel, votre quartier et vos clients.","sec1.sub":"Un vrai assistant IA, nourri de données réelles — pas un menu figé. Il recommande, réserve et guide, dans la langue de chaque invité.",
   "f1.t":"Recommandations par envie","f1.p":"Détente, famille, gastronomie, plein air : l'invité choisit son humeur, Alfred classe les meilleures options autour de l'hôtel selon la distance, la météo et l'heure.",
   "f2.t":"Réservations & menus en direct","f2.p":"Réserver une table, consulter un menu, obtenir un itinéraire — sans quitter la conversation. L'expérience d'un grand hôtel, pour chaque établissement.",
@@ -686,6 +831,12 @@ var T={
   "crm.title":"And for you? A command centre.","crm.sub":"Every stay feeds your dashboard: rates, competition, forecasts — so you decide with data.","crm.glimpse":"Dashboard preview",
   "crm.k1":"Occupancy","crm.pos":"Market position","crm.posc":"Above your comp-set median.","crm.sugg":"Suggested rate tonight","crm.suggc":"High demand · +8% vs current rate.",
   "sug.head":"Restaurants","sug.sub":"12 nearby","sug.v1d":"Local cuisine, calm vibe.","sug.v2d":"Tapas & natural wines.","sug.v3d":"Seafood, waterfront view.",
+  "cr.side":"Hotel CRM","cr.n1":"Overview","cr.n2":"Competitors","cr.n3":"Forecast","cr.n4":"Guests","cr.n5":"Billing",
+  "cr.apT":"Your week at a glance","cr.coT":"Rate intelligence","cr.foT":"Your recommended rates — 30 nights",
+  "cr.k1l":"Your rate","cr.k2l":"Forecast occupancy","cr.k3l":"Gain / 30 nights","cr.k4l":"Guests",
+  "cr.evT":"Events","cr.evD":"Park festival — high demand Saturday.","cr.recT":"Recommendation","cr.recD":"High demand from Saturday — rate up to $190.",
+  "cr.med":"Comparables median","cr.range":"Market range","cr.you":"Your rate","cr.conote":"Your $178 vs nearest $144 — you're above.",
+  "cr.gain":"+$2,221 vs your current rate · 30 nights","cr.lg1":"high","cr.lg2":"medium","cr.lg3":"low",
   "sec1.eyebrow":"The concierge","sec1.title":"Alfred knows your hotel, your neighbourhood and your guests.","sec1.sub":"A real AI assistant, fed by live data — not a static menu. It recommends, books and guides, in each guest's language.",
   "f1.t":"Recommendations by mood","f1.p":"Relax, family, dining, outdoors: the guest picks a mood, and Alfred ranks the best options around the hotel by distance, weather and time of day.",
   "f2.t":"Live bookings & menus","f2.p":"Book a table, view a menu, get directions — without leaving the chat. The experience of a grand hotel, for every property.",
@@ -740,6 +891,12 @@ var T={
   "crm.title":"¿Y para usted? Un centro de mando.","crm.sub":"Cada estadía alimenta su panel: tarifas, competencia, previsiones — para decidir con datos.","crm.glimpse":"Vista del panel",
   "crm.k1":"Ocupación","crm.pos":"Posición en el mercado","crm.posc":"Por encima de la mediana de su comp-set.","crm.sugg":"Tarifa sugerida esta noche","crm.suggc":"Demanda alta · +8% vs tarifa actual.",
   "sug.head":"Restaurantes","sug.sub":"12 cerca","sug.v1d":"Cocina local, ambiente tranquilo.","sug.v2d":"Tapas y vinos naturales.","sug.v3d":"Mariscos, vista al agua.",
+  "cr.side":"CRM hotelero","cr.n1":"Resumen","cr.n2":"Competencia","cr.n3":"Previsión","cr.n4":"Huéspedes","cr.n5":"Facturación",
+  "cr.apT":"Su semana de un vistazo","cr.coT":"Rate intelligence","cr.foT":"Sus tarifas recomendadas — 30 noches",
+  "cr.k1l":"Su tarifa","cr.k2l":"Ocupación prevista","cr.k3l":"Ganancia / 30 noches","cr.k4l":"Huéspedes",
+  "cr.evT":"Eventos","cr.evD":"Festival en el parque — alta demanda el sábado.","cr.recT":"Recomendación","cr.recD":"Alta demanda desde el sábado — tarifa hasta 190 $.",
+  "cr.med":"Mediana comparables","cr.range":"Rango del mercado","cr.you":"Su tarifa","cr.conote":"Su 178 $ vs el más cercano 144 $ — por encima.",
+  "cr.gain":"+2 221 $ vs su tarifa actual · 30 noches","cr.lg1":"alta","cr.lg2":"media","cr.lg3":"baja",
   "sec1.eyebrow":"El conserje","sec1.title":"Alfred conoce su hotel, su barrio y sus clientes.","sec1.sub":"Un verdadero asistente de IA, alimentado con datos reales — no un menú fijo. Recomienda, reserva y guía, en el idioma de cada huésped.",
   "f1.t":"Recomendaciones por antojo","f1.p":"Relax, familia, gastronomía, aire libre: el huésped elige su estado de ánimo y Alfred ordena las mejores opciones cerca del hotel por distancia, clima y hora.",
   "f2.t":"Reservas y menús en vivo","f2.p":"Reservar una mesa, ver un menú, obtener la ruta — sin salir de la conversación. La experiencia de un gran hotel, para cada establecimiento.",
