@@ -79,23 +79,23 @@
   .apptop{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
   .apptop .h{width:27px;height:27px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 2px 7px rgba(20,20,30,.1)}
   .apptop .lg{display:flex;align-items:center;background:#fff;border-radius:999px;padding:3px;box-shadow:0 2px 7px rgba(20,20,30,.1);font-size:11px;font-weight:700}
-  .apptop .lg b{background:#16202B;color:#fff;border-radius:999px;padding:3px 9px}
+  .apptop .lg b{background:#2F77E0;color:#fff;border-radius:999px;padding:3px 9px}
   .apptop .lg span{color:#9298a1;padding:3px 8px}
-  .apphotel{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:#CE8A20;font-weight:700}
+  .apphotel{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:#2F77E0;font-weight:700}
   .appgreet{font-family:var(--head);font-size:25px;font-weight:700;color:#16202B;margin:5px 0 2px}
   .appsub{font-size:12.5px;color:#6b7078;margin:0 0 13px}
   .appcard{background:#fff;border-radius:17px;padding:12px;display:flex;align-items:center;gap:11px;box-shadow:0 6px 18px -12px rgba(20,20,30,.28);margin-bottom:10px}
-  .feat-card{border-left:3px solid var(--gold)}
+  .feat-card{border-left:3px solid #2F77E0}
   .appcard .ic{width:39px;height:39px;border-radius:12px;background:#fff3e0;display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
   .appcard .ft{flex:1;line-height:1.3;min-width:0}
   .appcard .ft b{display:block;font-size:13.5px;color:#16202B}
   .appcard .ft span{font-size:11.5px;color:#6b7078}
   .appcard .wx{font-size:11.5px;color:#5b6068;background:#f4f5f7;border-radius:10px;padding:6px 8px;white-space:nowrap;font-weight:600}
-  .alfred-card .av{width:39px;height:39px;border-radius:12px;background:linear-gradient(160deg,#f3c877,#dd9226);display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
+  .alfred-card .av{width:39px;height:39px;border-radius:12px;background:linear-gradient(160deg,#6ba6ff,#2457c9);display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
   .alfred-card .al{flex:1;line-height:1.3;min-width:0}
   .alfred-card .alh{display:flex;align-items:center;gap:7px;margin-bottom:1px}
   .alfred-card .alh b{font-size:13.5px;color:#16202B}
-  .alfred-card .badge{font-size:8px;letter-spacing:.06em;font-weight:800;color:#b3791a;background:#fbeccb;border-radius:999px;padding:2px 7px;text-transform:uppercase;white-space:nowrap}
+  .alfred-card .badge{font-size:8px;letter-spacing:.06em;font-weight:800;color:#1f5fd6;background:#e7effe;border-radius:999px;padding:2px 7px;text-transform:uppercase;white-space:nowrap}
   .alfred-card .al>span{font-size:11.5px;color:#6b7078}
   .chev{color:#c4c8cf;font-size:19px;flex:none}
   .explore{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#9298a1;font-weight:700;margin:15px 4px 8px}
@@ -107,6 +107,29 @@
   .mood .mt b{display:block;font-size:13px;color:#16202B}
   .mood .mt span{font-size:11px;color:#9298a1}
   .appfade{height:30px;background:linear-gradient(to bottom, rgba(244,245,247,0), #f4f5f7)}
+  .dash{border:1px solid var(--hair);border-radius:18px;overflow:hidden;background:var(--card);box-shadow:0 24px 60px -34px rgba(20,20,30,.4);max-width:760px;margin:0 auto}
+  .dashbar{display:flex;align-items:center;gap:10px;padding:11px 15px;border-bottom:1px solid var(--hair);background:color-mix(in srgb,var(--ink) 3%,var(--card))}
+  .dashbar .dots{display:flex;gap:6px}
+  .dashbar .dots i{width:10px;height:10px;border-radius:50%;background:var(--hair-2)}
+  .dashbar .dashtitle{font-size:12.5px;color:var(--muted);font-weight:600}
+  .dashbody{padding:clamp(16px,2.5vw,24px)}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
+  .kpi{border:1px solid var(--hair);border-radius:14px;padding:13px 15px;background:var(--card)}
+  .kpi .kl{display:block;font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+  .kpi .kv{display:block;font-family:var(--head);font-size:clamp(21px,3vw,27px);font-weight:700;color:var(--ink);margin:3px 0 1px;font-variant-numeric:tabular-nums}
+  .kpi .kd{font-size:12px;font-weight:700}
+  .kpi .kd.up{color:#1fa855}
+  .dashgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+  @media(max-width:640px){.kpis{grid-template-columns:1fr}.dashgrid{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--hair);border-radius:14px;padding:15px}
+  .panel .pl{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:11px}
+  .posbar{position:relative;height:12px;border-radius:999px;background:color-mix(in srgb,var(--ink) 8%,var(--card))}
+  .posbar .fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--gold-deep))}
+  .posbar .mark{position:absolute;top:-3px;width:2px;height:18px;background:var(--ink);opacity:.5;border-radius:2px}
+  .poscap{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.4}
+  .panel.accent{background:linear-gradient(160deg,color-mix(in srgb,var(--gold) 16%,var(--card)),var(--card));border-color:color-mix(in srgb,var(--gold) 30%,var(--hair))}
+  .suggv{font-family:var(--head);font-size:clamp(24px,3.4vw,31px);font-weight:700;color:var(--gold-deep)}
+  :root[data-theme="dark"] .suggv{color:var(--gold)}
   .phone .top{background:var(--midnight);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:11px}
   .phone .top .who{line-height:1.25;display:flex;flex-direction:column}
   .phone .top .who .h{font-family:var(--head);font-weight:600;font-size:14.5px}
@@ -276,7 +299,7 @@
         <div class="phone reveal d4">
           <div class="appscreen">
             <div class="apptop">
-              <span class="h">🧡</span>
+              <span class="h">❤️</span>
               <span class="lg"><b>FR</b><span>EN</span></span>
             </div>
             <span class="apphotel" data-i18n="app.hotel"></span>
@@ -349,6 +372,26 @@
       </div>
     </section>
 
+    <section class="np">
+      <div class="wrap">
+        <div class="shead"><p class="eyebrow" data-i18n="hotels.k"></p><h2 data-i18n="crm.title"></h2><p data-i18n="crm.sub"></p></div>
+        <div class="dash">
+          <div class="dashbar"><span class="dots"><i></i><i></i><i></i></span><span class="dashtitle">CRM · Hôtel Coeur-Soleil</span></div>
+          <div class="dashbody">
+            <div class="kpis">
+              <div class="kpi"><span class="kl" data-i18n="crm.k1"></span><span class="kv">78 %</span><span class="kd up">▲ 6 pts</span></div>
+              <div class="kpi"><span class="kl">ADR</span><span class="kv">189 $</span><span class="kd up">▲ 4 %</span></div>
+              <div class="kpi"><span class="kl">RevPAR</span><span class="kv">147 $</span><span class="kd up">▲ 9 %</span></div>
+            </div>
+            <div class="dashgrid">
+              <div class="panel"><div class="pl" data-i18n="crm.pos"></div><div class="posbar"><span class="fill" style="width:68%"></span><span class="mark" style="left:52%"></span></div><div class="poscap" data-i18n="crm.posc"></div></div>
+              <div class="panel accent"><div class="pl" data-i18n="crm.sugg"></div><div class="suggv">204 $</div><div class="poscap" data-i18n="crm.suggc"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="etapes" class="np">
       <div class="wrap">
         <div class="shead"><p class="eyebrow" data-i18n="steps.eyebrow"></p><h2 data-i18n="steps.title"></h2></div>
@@ -405,6 +448,26 @@
           <a class="btn btn-ghost" data-route="partenaires" data-i18n="hp.altbtn"></a></div>
       </div>
     </section>
+    <section class="np">
+      <div class="wrap">
+        <p class="eyebrow" style="text-align:center;margin-bottom:16px" data-i18n="crm.glimpse"></p>
+        <div class="dash">
+          <div class="dashbar"><span class="dots"><i></i><i></i><i></i></span><span class="dashtitle">CRM · Hôtel Coeur-Soleil</span></div>
+          <div class="dashbody">
+            <div class="kpis">
+              <div class="kpi"><span class="kl" data-i18n="crm.k1"></span><span class="kv">78 %</span><span class="kd up">▲ 6 pts</span></div>
+              <div class="kpi"><span class="kl">ADR</span><span class="kv">189 $</span><span class="kd up">▲ 4 %</span></div>
+              <div class="kpi"><span class="kl">RevPAR</span><span class="kv">147 $</span><span class="kd up">▲ 9 %</span></div>
+            </div>
+            <div class="dashgrid">
+              <div class="panel"><div class="pl" data-i18n="crm.pos"></div><div class="posbar"><span class="fill" style="width:68%"></span><span class="mark" style="left:52%"></span></div><div class="poscap" data-i18n="crm.posc"></div></div>
+              <div class="panel accent"><div class="pl" data-i18n="crm.sugg"></div><div class="suggv">204 $</div><div class="poscap" data-i18n="crm.suggc"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="wrap">
         <div class="feat four">
@@ -518,6 +581,8 @@ var T={
   "app.hotel":"Hôtel Coeur-Soleil · Shawinigan","app.greeting":"Bon retour","app.sub":"Que souhaitez-vous découvrir aujourd'hui ?",
   "app.dinnerT":"C'est l'heure du dîner","app.dinnerD":"Le Pacini vous accueille tout près.","app.alfredBadge":"Concierge IA","app.alfredD":"Posez-moi une question ou demandez-moi de planifier votre journée.",
   "app.explore":"Explorer par intérêt","app.m1t":"Restaurants","app.m1d":"Tables, cafés & bars","app.m2t":"Aventure","app.m2d":"Plein air & activités","app.m3t":"Détente","app.m3d":"Spa & lieux paisibles","app.m4t":"Culture","app.m4d":"Musées, art & spectacles",
+  "crm.title":"Et pour vous ? Un poste de pilotage.","crm.sub":"Chaque séjour nourrit votre tableau de bord : tarifs, concurrence, prévisions — pour décider avec des données.","crm.glimpse":"Aperçu du tableau de bord",
+  "crm.k1":"Occupation","crm.pos":"Position sur le marché","crm.posc":"Au-dessus de la médiane de votre comp-set.","crm.sugg":"Tarif suggéré ce soir","crm.suggc":"Demande forte · +8 % vs tarif actuel.",
   "sec1.eyebrow":"Le concierge","sec1.title":"Alfred connaît votre hôtel, votre quartier et vos clients.","sec1.sub":"Un vrai assistant IA, nourri de données réelles — pas un menu figé. Il recommande, réserve et guide, dans la langue de chaque invité.",
   "f1.t":"Recommandations par envie","f1.p":"Détente, famille, gastronomie, plein air : l'invité choisit son humeur, Alfred classe les meilleures options autour de l'hôtel selon la distance, la météo et l'heure.",
   "f2.t":"Réservations & menus en direct","f2.p":"Réserver une table, consulter un menu, obtenir un itinéraire — sans quitter la conversation. L'expérience d'un grand hôtel, pour chaque établissement.",
@@ -569,6 +634,8 @@ var T={
   "app.hotel":"Coeur-Soleil Hotel · Shawinigan","app.greeting":"Welcome back","app.sub":"What would you like to discover today?",
   "app.dinnerT":"Dinner time","app.dinnerD":"Le Pacini is ready nearby.","app.alfredBadge":"AI concierge","app.alfredD":"Ask me anything, or have me plan your day.",
   "app.explore":"Explore by interest","app.m1t":"Restaurants","app.m1d":"Dining, cafés & bars","app.m2t":"Adventure","app.m2d":"Outdoors & activities","app.m3t":"Relaxation","app.m3d":"Spa & quiet spots","app.m4t":"Culture","app.m4d":"Museums, art & shows",
+  "crm.title":"And for you? A command centre.","crm.sub":"Every stay feeds your dashboard: rates, competition, forecasts — so you decide with data.","crm.glimpse":"Dashboard preview",
+  "crm.k1":"Occupancy","crm.pos":"Market position","crm.posc":"Above your comp-set median.","crm.sugg":"Suggested rate tonight","crm.suggc":"High demand · +8% vs current rate.",
   "sec1.eyebrow":"The concierge","sec1.title":"Alfred knows your hotel, your neighbourhood and your guests.","sec1.sub":"A real AI assistant, fed by live data — not a static menu. It recommends, books and guides, in each guest's language.",
   "f1.t":"Recommendations by mood","f1.p":"Relax, family, dining, outdoors: the guest picks a mood, and Alfred ranks the best options around the hotel by distance, weather and time of day.",
   "f2.t":"Live bookings & menus","f2.p":"Book a table, view a menu, get directions — without leaving the chat. The experience of a grand hotel, for every property.",
@@ -620,6 +687,8 @@ var T={
   "app.hotel":"Hotel Coeur-Soleil · Shawinigan","app.greeting":"Bienvenido de nuevo","app.sub":"¿Qué desea descubrir hoy?",
   "app.dinnerT":"Hora de cenar","app.dinnerD":"Le Pacini le espera cerca.","app.alfredBadge":"Conserje IA","app.alfredD":"Pregúnteme lo que sea o pídame planificar su día.",
   "app.explore":"Explorar por interés","app.m1t":"Restaurantes","app.m1d":"Mesas, cafés y bares","app.m2t":"Aventura","app.m2d":"Aire libre y actividades","app.m3t":"Relax","app.m3d":"Spa y lugares tranquilos","app.m4t":"Cultura","app.m4d":"Museos, arte y espectáculos",
+  "crm.title":"¿Y para usted? Un centro de mando.","crm.sub":"Cada estadía alimenta su panel: tarifas, competencia, previsiones — para decidir con datos.","crm.glimpse":"Vista del panel",
+  "crm.k1":"Ocupación","crm.pos":"Posición en el mercado","crm.posc":"Por encima de la mediana de su comp-set.","crm.sugg":"Tarifa sugerida esta noche","crm.suggc":"Demanda alta · +8% vs tarifa actual.",
   "sec1.eyebrow":"El conserje","sec1.title":"Alfred conoce su hotel, su barrio y sus clientes.","sec1.sub":"Un verdadero asistente de IA, alimentado con datos reales — no un menú fijo. Recomienda, reserva y guía, en el idioma de cada huésped.",
   "f1.t":"Recomendaciones por antojo","f1.p":"Relax, familia, gastronomía, aire libre: el huésped elige su estado de ánimo y Alfred ordena las mejores opciones cerca del hotel por distancia, clima y hora.",
   "f2.t":"Reservas y menús en vivo","f2.p":"Reservar una mesa, ver un menú, obtener la ruta — sin salir de la conversación. La experiencia de un gran hotel, para cada establecimiento.",
