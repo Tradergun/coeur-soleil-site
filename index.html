@@ -74,7 +74,39 @@
   .hero .cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
   .hero .trust{margin-top:22px;font-size:13px;color:var(--muted)}
 
-  .phone{justify-self:center;width:min(340px,86vw);background:var(--card);border:1px solid var(--hair);border-radius:30px;box-shadow:0 30px 70px -30px rgba(20,20,30,.45);overflow:hidden}
+  .phone{justify-self:center;width:min(332px,86vw);background:#fff;border:1px solid var(--hair);border-radius:34px;box-shadow:0 34px 82px -34px rgba(20,20,30,.5);overflow:hidden}
+  .appscreen{background:#f4f5f7;padding:15px 13px 0}
+  .apptop{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .apptop .h{width:27px;height:27px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 2px 7px rgba(20,20,30,.1)}
+  .apptop .lg{display:flex;align-items:center;background:#fff;border-radius:999px;padding:3px;box-shadow:0 2px 7px rgba(20,20,30,.1);font-size:11px;font-weight:700}
+  .apptop .lg b{background:#16202B;color:#fff;border-radius:999px;padding:3px 9px}
+  .apptop .lg span{color:#9298a1;padding:3px 8px}
+  .apphotel{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:#CE8A20;font-weight:700}
+  .appgreet{font-family:var(--head);font-size:25px;font-weight:700;color:#16202B;margin:5px 0 2px}
+  .appsub{font-size:12.5px;color:#6b7078;margin:0 0 13px}
+  .appcard{background:#fff;border-radius:17px;padding:12px;display:flex;align-items:center;gap:11px;box-shadow:0 6px 18px -12px rgba(20,20,30,.28);margin-bottom:10px}
+  .feat-card{border-left:3px solid var(--gold)}
+  .appcard .ic{width:39px;height:39px;border-radius:12px;background:#fff3e0;display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
+  .appcard .ft{flex:1;line-height:1.3;min-width:0}
+  .appcard .ft b{display:block;font-size:13.5px;color:#16202B}
+  .appcard .ft span{font-size:11.5px;color:#6b7078}
+  .appcard .wx{font-size:11.5px;color:#5b6068;background:#f4f5f7;border-radius:10px;padding:6px 8px;white-space:nowrap;font-weight:600}
+  .alfred-card .av{width:39px;height:39px;border-radius:12px;background:linear-gradient(160deg,#f3c877,#dd9226);display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
+  .alfred-card .al{flex:1;line-height:1.3;min-width:0}
+  .alfred-card .alh{display:flex;align-items:center;gap:7px;margin-bottom:1px}
+  .alfred-card .alh b{font-size:13.5px;color:#16202B}
+  .alfred-card .badge{font-size:8px;letter-spacing:.06em;font-weight:800;color:#b3791a;background:#fbeccb;border-radius:999px;padding:2px 7px;text-transform:uppercase;white-space:nowrap}
+  .alfred-card .al>span{font-size:11.5px;color:#6b7078}
+  .chev{color:#c4c8cf;font-size:19px;flex:none}
+  .explore{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#9298a1;font-weight:700;margin:15px 4px 8px}
+  .moods{background:#fff;border-radius:17px;box-shadow:0 6px 18px -12px rgba(20,20,30,.22);overflow:hidden}
+  .mood{display:flex;align-items:center;gap:11px;padding:10px 12px;border-bottom:1px solid #f0f1f3}
+  .mood:last-child{border-bottom:0}
+  .mood .mic{width:33px;height:33px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+  .mood .mt{flex:1;line-height:1.25;min-width:0}
+  .mood .mt b{display:block;font-size:13px;color:#16202B}
+  .mood .mt span{font-size:11px;color:#9298a1}
+  .appfade{height:30px;background:linear-gradient(to bottom, rgba(244,245,247,0), #f4f5f7)}
   .phone .top{background:var(--midnight);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:11px}
   .phone .top .who{line-height:1.25;display:flex;flex-direction:column}
   .phone .top .who .h{font-family:var(--head);font-weight:600;font-size:14.5px}
@@ -242,20 +274,32 @@
           <p class="trust reveal d4" data-i18n="hero.trust"></p>
         </div>
         <div class="phone reveal d4">
-          <div class="top">
-            <span class="logo" role="img" aria-label="Coeur-Soleil"></span>
-            <span class="who"><span class="h">Alfred</span><span class="s" data-i18n="chat.role"></span></span>
-          </div>
-          <div class="body">
-            <div class="bub g" data-i18n="chat.q1"></div>
-            <div class="bub a" data-i18n="chat.a1"></div>
-            <div class="vcard">
-              <div class="vtop"><span class="vname" data-i18n="chat.vname"></span><span class="vrate" data-i18n="chat.rating"></span></div>
-              <div class="vchips"><span class="vchip open"><i></i><span data-i18n="chat.open"></span></span><span class="vchip" data-i18n="chat.walk"></span></div>
-              <div class="vwhy" data-i18n="chat.vwhy"></div>
-              <div class="vacts"><span data-i18n="chat.c1"></span><span data-i18n="chat.c2"></span><span data-i18n="chat.c3"></span></div>
+          <div class="appscreen">
+            <div class="apptop">
+              <span class="h">🧡</span>
+              <span class="lg"><b>FR</b><span>EN</span></span>
             </div>
-            <div class="bub g" data-i18n="chat.q2"></div>
+            <span class="apphotel" data-i18n="app.hotel"></span>
+            <h3 class="appgreet" data-i18n="app.greeting"></h3>
+            <p class="appsub" data-i18n="app.sub"></p>
+            <div class="appcard feat-card">
+              <span class="ic">🍽️</span>
+              <span class="ft"><b data-i18n="app.dinnerT"></b><span data-i18n="app.dinnerD"></span></span>
+              <span class="wx">☀️ 24°</span>
+            </div>
+            <div class="appcard alfred-card">
+              <span class="av">🤵</span>
+              <span class="al"><span class="alh"><b>Alfred</b><span class="badge" data-i18n="app.alfredBadge"></span></span><span data-i18n="app.alfredD"></span></span>
+              <span class="chev">›</span>
+            </div>
+            <div class="explore" data-i18n="app.explore"></div>
+            <div class="moods">
+              <div class="mood"><span class="mic" style="background:#ffe7cf">🍽️</span><span class="mt"><b data-i18n="app.m1t"></b><span data-i18n="app.m1d"></span></span><span class="chev">›</span></div>
+              <div class="mood"><span class="mic" style="background:#d8e8ff">🧭</span><span class="mt"><b data-i18n="app.m2t"></b><span data-i18n="app.m2d"></span></span><span class="chev">›</span></div>
+              <div class="mood"><span class="mic" style="background:#d8efdc">🌿</span><span class="mt"><b data-i18n="app.m3t"></b><span data-i18n="app.m3d"></span></span><span class="chev">›</span></div>
+              <div class="mood"><span class="mic" style="background:#ece0ff">🎨</span><span class="mt"><b data-i18n="app.m4t"></b><span data-i18n="app.m4d"></span></span><span class="chev">›</span></div>
+            </div>
+            <div class="appfade"></div>
           </div>
         </div>
       </div>
@@ -471,6 +515,9 @@ var T={
   "chat.vname":"La Terrasse du Marché","chat.rating":"★ 4,7","chat.open":"Ouvert","chat.walk":"4 min à pied",
   "chat.vwhy":"Cuisine locale, ambiance calme — idéal pour une soirée en amoureux.",
   "chat.c1":"Réserver","chat.c2":"Menu","chat.c3":"Itinéraire","chat.q2":"Parfait, réserve pour deux.",
+  "app.hotel":"Hôtel Coeur-Soleil · Shawinigan","app.greeting":"Bon retour","app.sub":"Que souhaitez-vous découvrir aujourd'hui ?",
+  "app.dinnerT":"C'est l'heure du dîner","app.dinnerD":"Le Pacini vous accueille tout près.","app.alfredBadge":"Concierge IA","app.alfredD":"Posez-moi une question ou demandez-moi de planifier votre journée.",
+  "app.explore":"Explorer par intérêt","app.m1t":"Restaurants","app.m1d":"Tables, cafés & bars","app.m2t":"Aventure","app.m2d":"Plein air & activités","app.m3t":"Détente","app.m3d":"Spa & lieux paisibles","app.m4t":"Culture","app.m4d":"Musées, art & spectacles",
   "sec1.eyebrow":"Le concierge","sec1.title":"Alfred connaît votre hôtel, votre quartier et vos clients.","sec1.sub":"Un vrai assistant IA, nourri de données réelles — pas un menu figé. Il recommande, réserve et guide, dans la langue de chaque invité.",
   "f1.t":"Recommandations par envie","f1.p":"Détente, famille, gastronomie, plein air : l'invité choisit son humeur, Alfred classe les meilleures options autour de l'hôtel selon la distance, la météo et l'heure.",
   "f2.t":"Réservations & menus en direct","f2.p":"Réserver une table, consulter un menu, obtenir un itinéraire — sans quitter la conversation. L'expérience d'un grand hôtel, pour chaque établissement.",
@@ -519,6 +566,9 @@ var T={
   "chat.vname":"La Terrasse du Marché","chat.rating":"★ 4.7","chat.open":"Open","chat.walk":"4-min walk",
   "chat.vwhy":"Local cuisine, calm atmosphere — perfect for a date night.",
   "chat.c1":"Book","chat.c2":"Menu","chat.c3":"Directions","chat.q2":"Perfect, book for two.",
+  "app.hotel":"Coeur-Soleil Hotel · Shawinigan","app.greeting":"Welcome back","app.sub":"What would you like to discover today?",
+  "app.dinnerT":"Dinner time","app.dinnerD":"Le Pacini is ready nearby.","app.alfredBadge":"AI concierge","app.alfredD":"Ask me anything, or have me plan your day.",
+  "app.explore":"Explore by interest","app.m1t":"Restaurants","app.m1d":"Dining, cafés & bars","app.m2t":"Adventure","app.m2d":"Outdoors & activities","app.m3t":"Relaxation","app.m3d":"Spa & quiet spots","app.m4t":"Culture","app.m4d":"Museums, art & shows",
   "sec1.eyebrow":"The concierge","sec1.title":"Alfred knows your hotel, your neighbourhood and your guests.","sec1.sub":"A real AI assistant, fed by live data — not a static menu. It recommends, books and guides, in each guest's language.",
   "f1.t":"Recommendations by mood","f1.p":"Relax, family, dining, outdoors: the guest picks a mood, and Alfred ranks the best options around the hotel by distance, weather and time of day.",
   "f2.t":"Live bookings & menus","f2.p":"Book a table, view a menu, get directions — without leaving the chat. The experience of a grand hotel, for every property.",
@@ -567,6 +617,9 @@ var T={
   "chat.vname":"La Terrasse du Marché","chat.rating":"★ 4,7","chat.open":"Abierto","chat.walk":"4 min a pie",
   "chat.vwhy":"Cocina local, ambiente tranquilo — ideal para una cena romántica.",
   "chat.c1":"Reservar","chat.c2":"Menú","chat.c3":"Cómo llegar","chat.q2":"Perfecto, reserva para dos.",
+  "app.hotel":"Hotel Coeur-Soleil · Shawinigan","app.greeting":"Bienvenido de nuevo","app.sub":"¿Qué desea descubrir hoy?",
+  "app.dinnerT":"Hora de cenar","app.dinnerD":"Le Pacini le espera cerca.","app.alfredBadge":"Conserje IA","app.alfredD":"Pregúnteme lo que sea o pídame planificar su día.",
+  "app.explore":"Explorar por interés","app.m1t":"Restaurantes","app.m1d":"Mesas, cafés y bares","app.m2t":"Aventura","app.m2d":"Aire libre y actividades","app.m3t":"Relax","app.m3d":"Spa y lugares tranquilos","app.m4t":"Cultura","app.m4d":"Museos, arte y espectáculos",
   "sec1.eyebrow":"El conserje","sec1.title":"Alfred conoce su hotel, su barrio y sus clientes.","sec1.sub":"Un verdadero asistente de IA, alimentado con datos reales — no un menú fijo. Recomienda, reserva y guía, en el idioma de cada huésped.",
   "f1.t":"Recomendaciones por antojo","f1.p":"Relax, familia, gastronomía, aire libre: el huésped elige su estado de ánimo y Alfred ordena las mejores opciones cerca del hotel por distancia, clima y hora.",
   "f2.t":"Reservas y menús en vivo","f2.p":"Reservar una mesa, ver un menú, obtener la ruta — sin salir de la conversación. La experiencia de un gran hotel, para cada establecimiento.",
