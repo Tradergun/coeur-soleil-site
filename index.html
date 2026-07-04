@@ -597,8 +597,9 @@ function go(route){
   var parts=hash.split("#"); var page=parts[0]||"home"; var anchor=parts[1];
   if(!document.querySelector('[data-page="'+page+'"]'))page="home";
   document.querySelectorAll(".page").forEach(function(p){p.classList.toggle("active",p.dataset.page===page);});
+  var curRoute=page+(anchor?"#"+anchor:"");
   document.querySelectorAll('.nav .links a[data-route]').forEach(function(a){
-    var r=(a.dataset.route||"").split("#")[0];a.classList.toggle("on",r===page);});
+    a.classList.toggle("on",a.dataset.route===curRoute);});
   var _ap=document.querySelector('.page.active'); if(typeof setupReveal==="function"&&_ap)setupReveal(_ap);
   if(anchor){var t=document.getElementById(anchor);if(t){setTimeout(function(){t.scrollIntoView({behavior:"smooth"});},60);}}
   else window.scrollTo({top:0,behavior:"instant"in window?"instant":"auto"});
