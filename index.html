@@ -235,7 +235,7 @@
   .deckcard[data-pos="1"]{transform:translateX(-50%) translateY(-44px) scale(.93);opacity:.7;filter:saturate(.9);box-shadow:0 20px 40px -28px rgba(20,20,30,.5)}
   .deckcard[data-pos="2"]{transform:translateX(-50%) translateY(-78px) scale(.86);opacity:.42;filter:saturate(.82)}
   .pdeck{width:min(322px,84vw);height:600px;justify-self:center}
-  .pdeck .deckcard{width:min(322px,84vw);height:512px;display:flex;flex-direction:column}
+  .pdeck .deckcard{width:min(300px,82vw);height:632px;display:flex;flex-direction:column;border:9px solid #0c0c0e;border-radius:48px;background:var(--asbg)}
   .cdeck{width:100%;max-width:900px;height:486px;margin:0 auto}
   .cdeck .deckcard{width:min(880px,97%);height:398px;border-radius:16px}
   @media(max-width:660px){.cdeck{height:500px}.cdeck .deckcard{height:412px}}
@@ -285,7 +285,7 @@
   .cdeck .deckcard[data-pos="0"]{box-shadow:0 46px 96px -30px rgba(16,20,46,.6),0 8px 22px -12px rgba(16,20,46,.36)}
   /* iPhone dynamic island + glass sheen */
   .pdeck .deckcard::before{content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);width:74px;height:19px;background:#0a0a0c;border-radius:11px;z-index:8;box-shadow:0 1px 2px rgba(0,0,0,.4)}
-  .pdeck .deckcard::after{content:"";position:absolute;inset:0;border-radius:34px;background:linear-gradient(116deg,rgba(255,255,255,.22),rgba(255,255,255,0) 40%,rgba(255,255,255,0) 82%,rgba(255,255,255,.10));pointer-events:none;z-index:9}
+  .pdeck .deckcard::after{content:"";position:absolute;inset:0;border-radius:39px;background:linear-gradient(116deg,rgba(255,255,255,.18),rgba(255,255,255,0) 40%,rgba(255,255,255,0) 82%,rgba(255,255,255,.08));pointer-events:none;z-index:9}
   /* mac-style window dots on the CRM */
   .cdeck .crtop{position:relative;padding-left:58px}
   .cdeck .crtop::before{content:"";position:absolute;left:16px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:#ff5f57;box-shadow:16px 0 0 #febc2e,32px 0 0 #28c840}
@@ -313,11 +313,11 @@
   .ct2{background:linear-gradient(120deg,var(--crtext),color-mix(in srgb,var(--gold) 60%,var(--crtext)));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   /* phone deck = horizontal side-peek slider (center full, neighbours ~half) */
   html,body{overflow-x:clip}
-  .pdeck{width:min(322px,84vw);height:606px;justify-self:center}
-  .pdeck .deckcard{top:48px}
+  .pdeck{width:min(300px,82vw);height:708px;justify-self:center}
+  .pdeck .deckcard{top:36px}
   .pdeck .deckcard[data-pos="0"]{transform:translateX(-50%) scale(1);opacity:1;z-index:3;filter:none;box-shadow:0 62px 120px -24px rgba(12,16,42,.78),0 22px 50px -16px rgba(12,16,42,.6)}
-  .pdeck .deckcard[data-pos="1"]{transform:translateX(calc(-50% + 162px)) scale(.82);opacity:.55;z-index:1;filter:saturate(.9)}
-  .pdeck .deckcard[data-pos="2"]{transform:translateX(calc(-50% - 162px)) scale(.82);opacity:.55;z-index:1;filter:saturate(.9)}
+  .pdeck .deckcard[data-pos="1"]{transform:translateX(calc(-50% + 150px)) scale(.82);opacity:.55;z-index:1;filter:saturate(.9)}
+  .pdeck .deckcard[data-pos="2"]{transform:translateX(calc(-50% - 150px)) scale(.82);opacity:.55;z-index:1;filter:saturate(.9)}
   /* deeper shadow on CRM too */
   .cdeck .deckcard[data-pos="0"]{box-shadow:0 62px 120px -24px rgba(12,16,42,.72),0 22px 50px -16px rgba(12,16,42,.52)}
   .phone .top{background:var(--midnight);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:11px}
