@@ -51,6 +51,13 @@
   .langsw button{border:0;background:transparent;color:var(--muted);cursor:pointer;padding:4px 5px;font:inherit;border-radius:6px}
   .langsw button.on{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--gold)}
   .langsw span{color:var(--hair-2)}
+  .themebtn{width:36px;height:36px;border-radius:50%;border:1px solid var(--hair);background:var(--card);color:var(--ink-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,color .2s,transform .12s;flex:none}
+  .themebtn:hover{border-color:var(--gold);color:var(--gold-deep);transform:translateY(-1px)}
+  .themebtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .themebtn svg{width:17px;height:17px}
+  .themebtn .ic-sun{display:none}
+  :root[data-theme="dark"] .themebtn .ic-sun{display:block}
+  :root[data-theme="dark"] .themebtn .ic-moon{display:none}
   .btn{font-family:var(--body);font-weight:600;font-size:14px;border-radius:999px;padding:10px 20px;cursor:pointer;border:1px solid transparent;transition:transform .12s,box-shadow .2s,background .2s;display:inline-flex;align-items:center;gap:8px}
   .btn-gold{background:var(--gold);color:#221803;box-shadow:0 6px 18px -6px rgba(251,191,36,.7)}
   .btn-gold:hover{transform:translateY(-1px);box-shadow:0 10px 24px -6px rgba(251,191,36,.85)}
@@ -447,6 +454,10 @@
       <a data-route="home#etapes" data-i18n="nav.how"></a>
     </nav>
     <div class="right">
+      <button class="themebtn" id="themebtn" aria-label="Basculer le thème clair / sombre" title="Thème clair / sombre">
+        <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+        <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.9A9 9 0 1 1 11.1 3 7 7 0 0 0 21 12.9z"/></svg>
+      </button>
       <div class="langsw" id="langsw">
         <button data-lang="fr">FR</button><span>·</span><button data-lang="en">EN</button>
       </div>
@@ -905,7 +916,7 @@ var T={
   "chat.vname":"La Terrasse du Marché","chat.rating":"★ 4,7","chat.open":"Ouvert","chat.walk":"4 min à pied",
   "chat.vwhy":"Cuisine locale, ambiance calme — idéal pour une soirée en amoureux.",
   "chat.c1":"Réserver","chat.c2":"Menu","chat.c3":"Itinéraire","chat.q2":"Parfait, réserve pour deux.",
-  "app.hotel":"Hôtel Coeur-Soleil · Shawinigan","app.greeting":"Bon retour","app.sub":"Que souhaitez-vous découvrir aujourd'hui ?",
+  "app.hotel":"Hôtel Coeur-Soleil","app.greeting":"Bon retour","app.sub":"Que souhaitez-vous découvrir aujourd'hui ?",
   "app.dinnerT":"C'est l'heure du dîner","app.dinnerD":"Le Pacini vous accueille tout près.","app.alfredBadge":"Concierge IA","app.alfredD":"Posez-moi une question ou demandez-moi de planifier votre journée.",
   "app.explore":"Explorer par intérêt","app.m1t":"Restaurants","app.m1d":"Tables, cafés & bars","app.m2t":"Aventure","app.m2d":"Plein air & activités","app.m3t":"Détente","app.m3d":"Spa & lieux paisibles","app.m4t":"Culture","app.m4d":"Musées, art & spectacles",
   "crm.title":"Et pour vous ? Un poste de pilotage.","crm.sub":"Chaque séjour nourrit votre tableau de bord : tarifs, concurrence, prévisions — pour décider avec des données.","crm.glimpse":"Aperçu du tableau de bord",
@@ -966,7 +977,7 @@ var T={
   "chat.vname":"La Terrasse du Marché","chat.rating":"★ 4.7","chat.open":"Open","chat.walk":"4-min walk",
   "chat.vwhy":"Local cuisine, calm atmosphere — perfect for a date night.",
   "chat.c1":"Book","chat.c2":"Menu","chat.c3":"Directions","chat.q2":"Perfect, book for two.",
-  "app.hotel":"Coeur-Soleil Hotel · Shawinigan","app.greeting":"Welcome back","app.sub":"What would you like to discover today?",
+  "app.hotel":"Coeur-Soleil Hotel","app.greeting":"Welcome back","app.sub":"What would you like to discover today?",
   "app.dinnerT":"Dinner time","app.dinnerD":"Le Pacini is ready nearby.","app.alfredBadge":"AI concierge","app.alfredD":"Ask me anything, or have me plan your day.",
   "app.explore":"Explore by interest","app.m1t":"Restaurants","app.m1d":"Dining, cafés & bars","app.m2t":"Adventure","app.m2d":"Outdoors & activities","app.m3t":"Relaxation","app.m3d":"Spa & quiet spots","app.m4t":"Culture","app.m4d":"Museums, art & shows",
   "crm.title":"And for you? A command centre.","crm.sub":"Every stay feeds your dashboard: rates, competition, forecasts — so you decide with data.","crm.glimpse":"Dashboard preview",
@@ -1027,7 +1038,7 @@ var T={
   "chat.vname":"La Terrasse du Marché","chat.rating":"★ 4,7","chat.open":"Abierto","chat.walk":"4 min a pie",
   "chat.vwhy":"Cocina local, ambiente tranquilo — ideal para una cena romántica.",
   "chat.c1":"Reservar","chat.c2":"Menú","chat.c3":"Cómo llegar","chat.q2":"Perfecto, reserva para dos.",
-  "app.hotel":"Hotel Coeur-Soleil · Shawinigan","app.greeting":"Bienvenido de nuevo","app.sub":"¿Qué desea descubrir hoy?",
+  "app.hotel":"Hotel Coeur-Soleil","app.greeting":"Bienvenido de nuevo","app.sub":"¿Qué desea descubrir hoy?",
   "app.dinnerT":"Hora de cenar","app.dinnerD":"Le Pacini le espera cerca.","app.alfredBadge":"Conserje IA","app.alfredD":"Pregúnteme lo que sea o pídame planificar su día.",
   "app.explore":"Explorar por interés","app.m1t":"Restaurantes","app.m1d":"Mesas, cafés y bares","app.m2t":"Aventura","app.m2d":"Aire libre y actividades","app.m3t":"Relax","app.m3d":"Spa y lugares tranquilos","app.m4t":"Cultura","app.m4d":"Museos, arte y espectáculos",
   "crm.title":"¿Y para usted? Un centro de mando.","crm.sub":"Cada estadía alimenta su panel: tarifas, competencia, previsiones — para decidir con datos.","crm.glimpse":"Vista del panel",
@@ -1151,6 +1162,19 @@ document.querySelectorAll('.deck').forEach(function(deck){
   deck.addEventListener('mouseleave',start);
   layout();start();
 });
+
+/* theme toggle (persisted) */
+(function(){
+  var root=document.documentElement, b=document.getElementById('themebtn');
+  function sys(){return (window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}
+  var saved=null; try{saved=localStorage.getItem('cs-theme');}catch(e){}
+  root.setAttribute('data-theme', saved||sys());
+  if(b)b.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||sys(), next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('cs-theme',next);}catch(e){}
+  });
+})();
 
 applyLang("fr");
 go();
