@@ -1158,7 +1158,16 @@ document.querySelectorAll('.deck').forEach(function(deck){
   function layout(){cards.forEach(function(c,idx){var p=(idx-cur+n)%n;c.dataset.pos=p;c.style.zIndex=String(n-p);c.setAttribute('aria-hidden',p!==0?'true':'false');c.style.pointerEvents=p===0?'auto':'none';});}
   function next(){cur=(cur+1)%n;layout();}
   function start(){clearInterval(t);t=setInterval(next,iv);}
-  deck.addEventListener('mouseenter',function(){next();start();});
+  var TILT=9;
+  deck.addEventListener('mousemove',function(e){
+    var r=deck.getBoundingClientRect(), px=(e.clientX-r.left)/r.width-0.5, py=(e.clientY-r.top)/r.height-0.5;
+    deck.style.transition='transform .08s ease';
+    deck.style.transform='perspective(1100px) rotateY('+(px*TILT*2).toFixed(2)+'deg) rotateX('+(-py*TILT*2).toFixed(2)+'deg)';
+  });
+  deck.addEventListener('mouseleave',function(){
+    deck.style.transition='transform .55s cubic-bezier(.2,.7,.2,1)';
+    deck.style.transform='perspective(1100px) rotateY(0deg) rotateX(0deg)';
+  });
   layout();start();
 });
 
