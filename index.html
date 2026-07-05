@@ -269,6 +269,23 @@
   .pin.you{background:linear-gradient(150deg,#ffd34d,#f2a900);color:#3a2a06}
   .pin.cmp{background:#1fa855}
   .pin.oth{background:#8a93a6}
+  /* app: map on suggestions + featured-partner decoration */
+  .amap{position:relative;height:116px;border-radius:14px;border:1px solid var(--asbord);overflow:hidden;background:color-mix(in srgb,var(--asmut) 8%,var(--asbg));margin-bottom:10px}
+  .amap .mapbg{position:absolute;inset:0;width:100%;height:100%}
+  .apin{position:absolute;transform:translate(-50%,-50%);font-size:9px;font-weight:800;color:#fff;padding:2px 6px;border-radius:7px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.32)}
+  .apin.me{background:linear-gradient(150deg,#ffd76b,#f2a900);color:#3a2a06}
+  .apin.v{background:#2F77E0}
+  .svc.partner{padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--gold) 46%,var(--asbord))}
+  .svc.partner .pban{height:70px;position:relative;background:linear-gradient(120deg,#ffce87,#f0965a 55%,#e56a4f)}
+  .svc.partner .pban::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.16))}
+  .svc.partner .ptag{position:absolute;top:8px;left:8px;z-index:1;font-size:8.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#3a2a06;background:linear-gradient(135deg,#ffd76b,#f2a900);border-radius:999px;padding:3px 8px;box-shadow:0 3px 9px rgba(224,144,12,.55)}
+  .svc.partner .pheart{position:absolute;top:6px;right:8px;z-index:1;font-size:14px}
+  .svc.partner .pbwrap{padding:10px 12px 11px}
+  /* Alfred in gold */
+  .alfred-card{background:linear-gradient(128deg,color-mix(in srgb,var(--gold) 22%,var(--ascard)),var(--ascard) 60%)}
+  .alfred-card .av{background:linear-gradient(160deg,#ffd76b,#ef9f00)}
+  .alfred-card .badge,.sugbar .badge{font-size:8px;letter-spacing:.06em;font-weight:800;border-radius:999px;padding:2px 7px;text-transform:uppercase;white-space:nowrap;color:#9a6a06;background:#fde7bf;box-shadow:0 2px 8px -3px rgba(224,144,12,.5)}
+  :root[data-theme="dark"] .alfred-card .badge,:root[data-theme="dark"] .sugbar .badge{color:#ffd76b;background:#3a2c0a}
   /* ===== premium device presentation (make the mocks SELL) ===== */
   .pdeck,.cdeck{position:relative;isolation:isolate}
   .pdeck::before{content:"";position:absolute;inset:-60px -40px;z-index:0;background:
@@ -514,7 +531,8 @@
             <div class="statusbar"><span>9:41</span><span class="sbr">📶 100% 🔋</span></div>
             <div class="appscreen">
               <div class="sugbar"><span class="bk">‹</span><b data-i18n="sug.head"></b><span data-i18n="sug.sub"></span></div>
-              <div class="svc thumb"><span class="sth" style="background:#ffe7cf">🍽️</span><div class="svb"><div class="st"><span class="sn">La Terrasse du Marché</span><span class="sr">★ 4,7</span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch">4 min</span><span class="sch">$$</span></div><div class="sd" data-i18n="sug.v1d"></div></div></div>
+              <div class="amap"><svg class="mapbg" viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice"><rect x="36" y="88" width="78" height="52" rx="7" fill="rgba(90,180,120,.16)"/><rect x="300" y="18" width="66" height="40" rx="7" fill="rgba(90,180,120,.13)"/><path d="M-20 54 C 70 78, 150 28, 232 60 S 372 44, 430 80" fill="none" stroke="rgba(80,150,220,.30)" stroke-width="15" stroke-linecap="round"/><g stroke="rgba(132,142,158,.34)" fill="none" stroke-linecap="round"><path d="M0 98 L400 88" stroke-width="5"/><path d="M156 -10 L178 160" stroke-width="4.5"/><path d="M-10 22 L410 122" stroke-width="2"/><path d="M0 132 L400 120" stroke-width="2"/><path d="M58 -10 L74 160" stroke-width="1.5"/><path d="M252 -10 L272 160" stroke-width="1.5"/><path d="M332 -10 L346 160" stroke-width="2.5"/></g></svg><span class="apin me" style="left:49%;top:57%" data-i18n="sug.you"></span><span class="apin v" style="left:64%;top:40%">★ 4,7</span><span class="apin v" style="left:35%;top:67%">★ 4,5</span><span class="apin v" style="left:73%;top:73%">★ 4,6</span></div>
+              <div class="svc partner"><div class="pban"><span class="ptag" data-i18n="sug.partner"></span><span class="pheart">🤍</span></div><div class="pbwrap"><div class="st"><span class="sn">La Terrasse du Marché</span><span class="sr">★ 4,7</span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch">4 min</span><span class="sch">$$</span></div><div class="sd" data-i18n="sug.v1d"></div></div></div>
               <div class="svc thumb"><span class="sth" style="background:#e6e0ff">🍷</span><div class="svb"><div class="st"><span class="sn">Bistro Nord</span><span class="sr">★ 4,5</span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch">7 min</span><span class="sch">$$</span></div><div class="sd" data-i18n="sug.v2d"></div></div></div>
               <div class="svc thumb"><span class="sth" style="background:#d8eeff">🦞</span><div class="svb"><div class="st"><span class="sn">Le Quai 21</span><span class="sr">★ 4,6</span></div><div class="sm"><span class="sch">12 min</span><span class="sch">$$$</span></div><div class="sd" data-i18n="sug.v3d"></div></div></div>
             </div>
@@ -526,7 +544,7 @@
               <div class="sugbar"><span class="bk">‹</span><b>Alfred</b><span class="badge" style="margin-left:6px" data-i18n="app.alfredBadge"></span></div>
               <div class="abub g" data-i18n="chat.q1"></div>
               <div class="abub a" data-i18n="chat.a1"></div>
-              <div class="svc"><div class="st"><span class="sn" data-i18n="chat.vname"></span><span class="sr" data-i18n="chat.rating"></span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch" data-i18n="chat.walk"></span></div><div class="sd" data-i18n="chat.vwhy"></div><div class="sa"><span data-i18n="chat.c1"></span><span data-i18n="chat.c2"></span><span data-i18n="chat.c3"></span></div></div>
+              <div class="svc partner"><div class="pban"><span class="ptag" data-i18n="sug.partner"></span><span class="pheart">🤍</span></div><div class="pbwrap"><div class="st"><span class="sn" data-i18n="chat.vname"></span><span class="sr" data-i18n="chat.rating"></span></div><div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch" data-i18n="chat.walk"></span></div><div class="sd" data-i18n="chat.vwhy"></div><div class="sa"><span data-i18n="chat.c1"></span><span data-i18n="chat.c2"></span><span data-i18n="chat.c3"></span></div></div></div>
               <div class="abub g" data-i18n="chat.q2"></div>
             </div>
             <div class="pnav"><span class="pn">🏠</span><span class="pn">🧭</span><span class="pn on">💬</span><span class="pn">👤</span></div>
@@ -930,7 +948,7 @@ var T={
   "app.explore":"Explorer par intérêt","app.m1t":"Restaurants","app.m1d":"Tables, cafés & bars","app.m2t":"Aventure","app.m2d":"Plein air & activités","app.m3t":"Détente","app.m3d":"Spa & lieux paisibles","app.m4t":"Culture","app.m4d":"Musées, art & spectacles",
   "crm.title":"Et pour vous ? Un poste de pilotage.","crm.sub":"Chaque séjour nourrit votre tableau de bord : tarifs, concurrence, prévisions — pour décider avec des données.","crm.glimpse":"Aperçu du tableau de bord",
   "crm.k1":"Occupation","crm.pos":"Position sur le marché","crm.posc":"Au-dessus de la médiane de votre comp-set.","crm.sugg":"Tarif suggéré ce soir","crm.suggc":"Demande forte · +8 % vs tarif actuel.",
-  "sug.head":"Restaurants","sug.sub":"12 à proximité","sug.v1d":"Cuisine locale, ambiance calme.","sug.v2d":"Tapas & vins nature.","sug.v3d":"Fruits de mer, vue sur l'eau.",
+  "sug.head":"Restaurants","sug.sub":"12 à proximité","sug.v1d":"Cuisine locale, ambiance calme.","sug.v2d":"Tapas & vins nature.","sug.v3d":"Fruits de mer, vue sur l'eau.","sug.partner":"★ Partenaire","sug.you":"Vous",
   "cr.side":"CRM hôtelier","cr.n1":"Aperçu","cr.n2":"Concurrents","cr.n3":"Prévision","cr.n4":"Invités","cr.n5":"Facturation",
   "cr.apT":"Votre semaine en un coup d'œil","cr.coT":"Rate intelligence","cr.foT":"Vos tarifs recommandés — 30 nuits",
   "cr.k1l":"Votre tarif","cr.k2l":"Occupation prévue","cr.k3l":"Gain / 30 nuits","cr.k4l":"Invités",
@@ -991,7 +1009,7 @@ var T={
   "app.explore":"Explore by interest","app.m1t":"Restaurants","app.m1d":"Dining, cafés & bars","app.m2t":"Adventure","app.m2d":"Outdoors & activities","app.m3t":"Relaxation","app.m3d":"Spa & quiet spots","app.m4t":"Culture","app.m4d":"Museums, art & shows",
   "crm.title":"And for you? A command centre.","crm.sub":"Every stay feeds your dashboard: rates, competition, forecasts — so you decide with data.","crm.glimpse":"Dashboard preview",
   "crm.k1":"Occupancy","crm.pos":"Market position","crm.posc":"Above your comp-set median.","crm.sugg":"Suggested rate tonight","crm.suggc":"High demand · +8% vs current rate.",
-  "sug.head":"Restaurants","sug.sub":"12 nearby","sug.v1d":"Local cuisine, calm vibe.","sug.v2d":"Tapas & natural wines.","sug.v3d":"Seafood, waterfront view.",
+  "sug.head":"Restaurants","sug.sub":"12 nearby","sug.v1d":"Local cuisine, calm vibe.","sug.v2d":"Tapas & natural wines.","sug.v3d":"Seafood, waterfront view.","sug.partner":"★ Partner","sug.you":"You",
   "cr.side":"Hotel CRM","cr.n1":"Overview","cr.n2":"Competitors","cr.n3":"Forecast","cr.n4":"Guests","cr.n5":"Billing",
   "cr.apT":"Your week at a glance","cr.coT":"Rate intelligence","cr.foT":"Your recommended rates — 30 nights",
   "cr.k1l":"Your rate","cr.k2l":"Forecast occupancy","cr.k3l":"Gain / 30 nights","cr.k4l":"Guests",
@@ -1052,7 +1070,7 @@ var T={
   "app.explore":"Explorar por interés","app.m1t":"Restaurantes","app.m1d":"Mesas, cafés y bares","app.m2t":"Aventura","app.m2d":"Aire libre y actividades","app.m3t":"Relax","app.m3d":"Spa y lugares tranquilos","app.m4t":"Cultura","app.m4d":"Museos, arte y espectáculos",
   "crm.title":"¿Y para usted? Un centro de mando.","crm.sub":"Cada estadía alimenta su panel: tarifas, competencia, previsiones — para decidir con datos.","crm.glimpse":"Vista del panel",
   "crm.k1":"Ocupación","crm.pos":"Posición en el mercado","crm.posc":"Por encima de la mediana de su comp-set.","crm.sugg":"Tarifa sugerida esta noche","crm.suggc":"Demanda alta · +8% vs tarifa actual.",
-  "sug.head":"Restaurantes","sug.sub":"12 cerca","sug.v1d":"Cocina local, ambiente tranquilo.","sug.v2d":"Tapas y vinos naturales.","sug.v3d":"Mariscos, vista al agua.",
+  "sug.head":"Restaurantes","sug.sub":"12 cerca","sug.v1d":"Cocina local, ambiente tranquilo.","sug.v2d":"Tapas y vinos naturales.","sug.v3d":"Mariscos, vista al agua.","sug.partner":"★ Socio","sug.you":"Usted",
   "cr.side":"CRM hotelero","cr.n1":"Resumen","cr.n2":"Competencia","cr.n3":"Previsión","cr.n4":"Huéspedes","cr.n5":"Facturación",
   "cr.apT":"Su semana de un vistazo","cr.coT":"Rate intelligence","cr.foT":"Sus tarifas recomendadas — 30 noches",
   "cr.k1l":"Su tarifa","cr.k2l":"Ocupación prevista","cr.k3l":"Ganancia / 30 noches","cr.k4l":"Huéspedes",
