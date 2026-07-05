@@ -573,7 +573,7 @@
     <section class="np">
       <div class="wrap">
         <div class="shead"><p class="eyebrow" data-i18n="hotels.k"></p><h2 data-i18n="crm.title"></h2><p data-i18n="crm.sub"></p></div>
-        <div class="cdeck deck" data-interval="2800">
+        <div class="cdeck deck" data-interval="2000">
           <div class="crm deckcard">
             <div class="crmwin">
               <aside class="crside">
@@ -719,7 +719,7 @@
     <section class="np">
       <div class="wrap">
         <p class="eyebrow" style="text-align:center;margin-bottom:16px" data-i18n="crm.glimpse"></p>
-        <div class="cdeck deck" data-interval="2800">
+        <div class="cdeck deck" data-interval="2000">
           <div class="crm deckcard">
             <div class="crmwin">
               <aside class="crside">
@@ -1158,8 +1158,7 @@ document.querySelectorAll('.deck').forEach(function(deck){
   function layout(){cards.forEach(function(c,idx){var p=(idx-cur+n)%n;c.dataset.pos=p;c.style.zIndex=String(n-p);c.setAttribute('aria-hidden',p!==0?'true':'false');c.style.pointerEvents=p===0?'auto':'none';});}
   function next(){cur=(cur+1)%n;layout();}
   function start(){clearInterval(t);t=setInterval(next,iv);}
-  deck.addEventListener('mouseenter',function(){clearInterval(t);});
-  deck.addEventListener('mouseleave',start);
+  deck.addEventListener('mouseenter',function(){next();start();});
   layout();start();
 });
 
