@@ -297,6 +297,28 @@
   .svc.partner .ptag{position:absolute;top:8px;left:8px;z-index:1;font-size:8.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#3a2a06;background:linear-gradient(135deg,#ffd76b,#f2a900);border-radius:999px;padding:3px 8px;box-shadow:0 3px 9px rgba(224,144,12,.55)}
   .svc.partner .pheart{position:absolute;top:6px;right:8px;z-index:1;font-size:14px}
   .svc.partner .pbwrap{padding:10px 12px 11px}
+  /* Partenaires page — "how a partner looks in the app" showcase */
+  .pshow{display:grid;grid-template-columns:1.05fr 1fr;gap:46px;align-items:center}
+  @media(max-width:880px){.pshow{grid-template-columns:1fr;gap:30px;justify-items:center}}
+  .pshow .pdeck{height:600px}
+  .svc.partner.pdt{margin-bottom:0}
+  .svc.partner.pdt .pban{height:104px}
+  .svc.partner.pdt .pbwrap{padding:12px 13px 13px}
+  .svc.partner.pdt .sn{font-size:15px}
+  .palf{display:inline-flex;align-items:center;gap:6px;margin:9px 0 3px;font-size:10.5px;font-weight:800;letter-spacing:.02em;color:#9a6a06;background:linear-gradient(135deg,#fde7bf,#fdd88a);border-radius:999px;padding:4px 10px}
+  .palf .pai{font-size:12px}
+  :root[data-theme="dark"] .palf{color:#ffe0a0;background:linear-gradient(135deg,#3a2c0a,#4a3810)}
+  @media(prefers-color-scheme:dark){.palf{color:#ffe0a0;background:linear-gradient(135deg,#3a2c0a,#4a3810)}}
+  .pgal{display:flex;gap:7px;margin:11px 0 3px}
+  .pgal span{flex:1;height:48px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:21px}
+  .pdact{display:flex;gap:7px;margin-top:12px}
+  .pdact .pab{flex:1;text-align:center;font-size:11.5px;font-weight:700;border-radius:11px;padding:9px 4px;border:1px solid var(--asbord);color:var(--astext)}
+  .pdact .pab.gold{background:linear-gradient(135deg,#ffd76b,#f2a900);color:#3a2a06;border-color:transparent;box-shadow:0 6px 16px -8px rgba(224,144,12,.7)}
+  .pfeatures{list-style:none;display:flex;flex-direction:column;gap:17px;margin-top:24px;max-width:460px}
+  .pfeatures li{display:flex;gap:14px;align-items:flex-start}
+  .pfeatures .fi{width:42px;height:42px;flex:none;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;background:color-mix(in srgb,var(--gold) 16%,transparent);border:1px solid color-mix(in srgb,var(--gold) 34%,transparent)}
+  .pfeatures h4{font-family:var(--head);font-size:16px;font-weight:600;margin:1px 0 3px;color:var(--ink)}
+  .pfeatures p{font-size:14px;color:var(--muted);line-height:1.45;margin:0}
   /* Alfred in gold */
   .alfred-card{background:linear-gradient(128deg,color-mix(in srgb,var(--gold) 22%,var(--ascard)),var(--ascard) 60%)}
   .alfred-card .av{background:linear-gradient(160deg,#ffd76b,#ef9f00)}
@@ -888,6 +910,44 @@
           <a class="btn btn-ghost" data-route="hotels" data-i18n="pp.altbtn"></a></div>
       </div>
     </section>
+    <section class="np">
+      <div class="wrap">
+        <div class="pshow">
+          <div class="pdeck deck">
+            <div class="phone deckcard">
+              <div class="statusbar"></div>
+              <div class="appscreen">
+                <div class="sugbar"><span class="bk">‹</span><b data-i18n="pp.fiche"></b></div>
+                <div class="svc partner pdt">
+                  <div class="pban"><span class="ptag" data-i18n="sug.partner"></span><span class="pheart">🤍</span></div>
+                  <div class="pbwrap">
+                    <div class="st"><span class="sn">La Terrasse du Marché</span><span class="sr">★ 4,7</span></div>
+                    <div class="palf"><span class="pai">✦</span><span data-i18n="pp.recAlf"></span></div>
+                    <div class="sm"><span class="sch o"><i></i><span data-i18n="chat.open"></span></span><span class="sch">4 min</span><span class="sch">$$</span><span class="sch" data-i18n="pp.rev"></span></div>
+                    <div class="sd" data-i18n="pp.vdesc"></div>
+                    <div class="pgal"><span style="background:linear-gradient(135deg,#ffd9a8,#f0965a)">🍽️</span><span style="background:linear-gradient(135deg,#cfe6ff,#7fb0ff)">🥂</span><span style="background:linear-gradient(135deg,#d8efdc,#7fd6a2)">🌿</span></div>
+                    <div class="pdact"><span class="pab gold" data-i18n="pp.act1"></span><span class="pab" data-i18n="pp.act2"></span><span class="pab" data-i18n="pp.act3"></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="pnav"><span class="pn">🏠</span><span class="pn on">🧭</span><span class="pn">💬</span><span class="pn">👤</span></div>
+            </div>
+          </div>
+          <div class="pshow-info">
+            <p class="eyebrow" data-i18n="pp.showEye"></p>
+            <h2 data-i18n="pp.showT"></h2>
+            <p data-i18n="pp.showS"></p>
+            <ul class="pfeatures">
+              <li><span class="fi">📸</span><div><h4 data-i18n="pp.iv1t"></h4><p data-i18n="pp.iv1p"></p></div></li>
+              <li><span class="fi">★</span><div><h4 data-i18n="pp.iv2t"></h4><p data-i18n="pp.iv2p"></p></div></li>
+              <li><span class="fi">✦</span><div><h4 data-i18n="pp.iv3t"></h4><p data-i18n="pp.iv3p"></p></div></li>
+              <li><span class="fi">📍</span><div><h4 data-i18n="pp.iv4t"></h4><p data-i18n="pp.iv4p"></p></div></li>
+              <li><span class="fi">🍽️</span><div><h4 data-i18n="pp.iv5t"></h4><p data-i18n="pp.iv5p"></p></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
     <section>
       <div class="wrap">
         <div class="feat">
@@ -1001,6 +1061,12 @@ var T={
   "hp.s3t":"Votre tableau de bord se remplit","hp.s3p":"Prix, concurrence, clients et prévisions — un cockpit qui s'enrichit chaque jour.",
   "hp.ctatitle":"Voyez votre hôtel dans Coeur-Soleil.","hp.ctasub":"Démo de 20 minutes, aperçu configuré gratuitement.",
   "pp.badge":"Pour les partenaires","pp.title":"Soyez découvert au moment parfait.","pp.sub":"Restaurants, activités et commerces : Coeur-Soleil vous présente aux voyageurs séjournant dans les hôtels partenaires, exactement quand ils cherchent ce que vous offrez.","pp.cta":"Devenir partenaire","pp.altbtn":"Voir pour les hôtels",
+  "pp.showEye":"Dans l'application","pp.showT":"Votre établissement, mis en valeur","pp.showS":"Vos clients potentiels vous découvrent avec une fiche soignée — la même que celle vue par les invités des hôtels partenaires.","pp.fiche":"Fiche partenaire","pp.recAlf":"Recommandé par Alfred","pp.rev":"512 avis","pp.vdesc":"Cuisine locale, ambiance calme — une adresse que le concierge aime suggérer.","pp.act1":"Réserver","pp.act2":"Menu","pp.act3":"Itinéraire",
+  "pp.iv1t":"Bannière & photos","pp.iv1p":"Une fiche visuelle avec photo de couverture et galerie de votre établissement.",
+  "pp.iv2t":"Badge Partenaire","pp.iv2p":"Un ruban doré qui vous distingue des autres adresses dans la liste.",
+  "pp.iv3t":"Recommandé par Alfred","pp.iv3p":"Le concierge IA vous suggère au bon moment, selon l'envie et l'heure.",
+  "pp.iv4t":"Position prioritaire","pp.iv4p":"En tête des suggestions pour les invités logés tout près de vous.",
+  "pp.iv5t":"Réservation & itinéraire","pp.iv5p":"Menu, réservation et trajet accessibles en un seul geste.",
   "pp.f1t":"Recommandé au bon moment","pp.f1p":"Alfred vous suggère selon l'envie, la distance et l'heure — une visibilité qu'aucune pancarte n'offre.",
   "pp.f2t":"Des résultats mesurés","pp.f2p":"Rapport mensuel clair : vues, clics et visites générées. Vous voyez exactement ce que ça rapporte.",
   "pp.f3t":"Un tarif simple","pp.f3p":"Un forfait fixe, sans commission sur vos ventes. Vous gardez chaque dollar que vous gagnez.",
@@ -1062,6 +1128,12 @@ var T={
   "hp.s3t":"Your dashboard fills up","hp.s3p":"Rates, competition, guests and forecasts — a cockpit that grows richer daily.",
   "hp.ctatitle":"See your hotel inside Coeur-Soleil.","hp.ctasub":"20-minute demo, preview configured for free.",
   "pp.badge":"For partners","pp.title":"Get discovered at the perfect moment.","pp.sub":"Restaurants, activities and shops: Coeur-Soleil presents you to travellers staying in partner hotels, exactly when they're looking for what you offer.","pp.cta":"Become a partner","pp.altbtn":"See for hotels",
+  "pp.showEye":"Inside the app","pp.showT":"Your business, beautifully featured","pp.showS":"Potential guests discover you through a polished listing — the same one seen by guests of partner hotels.","pp.fiche":"Partner listing","pp.recAlf":"Recommended by Alfred","pp.rev":"512 reviews","pp.vdesc":"Local cuisine, calm setting — a spot the concierge loves to suggest.","pp.act1":"Book","pp.act2":"Menu","pp.act3":"Directions",
+  "pp.iv1t":"Banner & photos","pp.iv1p":"A visual listing with a cover photo and a gallery of your venue.",
+  "pp.iv2t":"Partner badge","pp.iv2p":"A gold ribbon that sets you apart from other spots in the list.",
+  "pp.iv3t":"Recommended by Alfred","pp.iv3p":"The AI concierge suggests you at the right moment, by mood and time.",
+  "pp.iv4t":"Priority placement","pp.iv4p":"At the top of suggestions for guests staying right near you.",
+  "pp.iv5t":"Booking & directions","pp.iv5p":"Menu, reservation and route — all in a single tap.",
   "pp.f1t":"Recommended at the right time","pp.f1p":"Alfred suggests you by mood, distance and time of day — visibility no sign can offer.",
   "pp.f2t":"Measured results","pp.f2p":"A clear monthly report: views, clicks and visits generated. You see exactly what it brings in.",
   "pp.f3t":"Simple pricing","pp.f3p":"A flat fee, no commission on your sales. You keep every dollar you earn.",
@@ -1123,6 +1195,12 @@ var T={
   "hp.s3t":"Su panel se llena","hp.s3p":"Tarifas, competencia, clientes y previsiones — un cockpit que se enriquece cada día.",
   "hp.ctatitle":"Vea su hotel dentro de Coeur-Soleil.","hp.ctasub":"Demo de 20 minutos, vista previa configurada gratis.",
   "pp.badge":"Para socios","pp.title":"Sea descubierto en el momento perfecto.","pp.sub":"Restaurantes, actividades y comercios: Coeur-Soleil lo presenta a los viajeros hospedados en hoteles socios, justo cuando buscan lo que usted ofrece.","pp.cta":"Ser socio","pp.altbtn":"Ver para hoteles",
+  "pp.showEye":"En la aplicación","pp.showT":"Su establecimiento, bien destacado","pp.showS":"Sus clientes potenciales lo descubren con una ficha cuidada — la misma que ven los huéspedes de los hoteles asociados.","pp.fiche":"Ficha de socio","pp.recAlf":"Recomendado por Alfred","pp.rev":"512 opiniones","pp.vdesc":"Cocina local, ambiente tranquilo — un lugar que el conserje encanta sugerir.","pp.act1":"Reservar","pp.act2":"Menú","pp.act3":"Cómo llegar",
+  "pp.iv1t":"Banner y fotos","pp.iv1p":"Una ficha visual con foto de portada y galería de su local.",
+  "pp.iv2t":"Insignia de socio","pp.iv2p":"Un lazo dorado que lo distingue de otros lugares en la lista.",
+  "pp.iv3t":"Recomendado por Alfred","pp.iv3p":"El conserje con IA lo sugiere en el momento justo, según el antojo y la hora.",
+  "pp.iv4t":"Posición prioritaria","pp.iv4p":"A la cabeza de las sugerencias para los huéspedes que se alojan cerca.",
+  "pp.iv5t":"Reserva y cómo llegar","pp.iv5p":"Menú, reserva y ruta — todo con un solo toque.",
   "pp.f1t":"Recomendado en el momento justo","pp.f1p":"Alfred lo sugiere según el antojo, la distancia y la hora — una visibilidad que ningún cartel ofrece.",
   "pp.f2t":"Resultados medidos","pp.f2p":"Un informe mensual claro: vistas, clics y visitas generadas. Ve exactamente lo que aporta.",
   "pp.f3t":"Precio simple","pp.f3p":"Una tarifa fija, sin comisión sobre sus ventas. Usted conserva cada dólar que gana.",
@@ -1198,11 +1276,11 @@ window.addEventListener("scroll",function(){if(_hdr)_hdr.classList.toggle("scrol
 /* ---------- stacked auto-flipping decks (always rotate) ---------- */
 document.querySelectorAll('.deck').forEach(function(deck){
   var cards=[].slice.call(deck.querySelectorAll('.deckcard'));
-  if(cards.length<2)return;
+  if(!cards.length)return;
   var n=cards.length, cur=0, t, iv=+deck.dataset.interval||3600;
   function layout(){cards.forEach(function(c,idx){var p=(idx-cur+n)%n;c.dataset.pos=p;c.style.zIndex=String(n-p);c.setAttribute('aria-hidden',p!==0?'true':'false');c.style.pointerEvents=p===0?'auto':'none';});}
   function next(){cur=(cur+1)%n;layout();}
-  function start(){clearInterval(t);t=setInterval(next,iv);}
+  function start(){clearInterval(t);if(n>1)t=setInterval(next,iv);}
   var TILT=9;
   deck.addEventListener('mousemove',function(e){
     var r=deck.getBoundingClientRect(), px=(e.clientX-r.left)/r.width-0.5, py=(e.clientY-r.top)/r.height-0.5;
